@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>链表LinkedList | eaaomk</title>
+    <meta name="generator" content="VuePress 1.9.4">
+    <link rel="icon" href="/blog/logo.png">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.5a668c74.css" as="style"><link rel="preload" href="/blog/assets/js/app.19518fa2.js" as="script"><link rel="preload" href="/blog/assets/js/5.4859d6c2.js" as="script"><link rel="preload" href="/blog/assets/js/1.5aece763.js" as="script"><link rel="preload" href="/blog/assets/js/43.678c8e5c.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.d5bce0ea.js"><link rel="prefetch" href="/blog/assets/js/11.76facc45.js"><link rel="prefetch" href="/blog/assets/js/12.19550e35.js"><link rel="prefetch" href="/blog/assets/js/13.e756f87b.js"><link rel="prefetch" href="/blog/assets/js/14.414d59aa.js"><link rel="prefetch" href="/blog/assets/js/15.6c9f042b.js"><link rel="prefetch" href="/blog/assets/js/16.f5af03e6.js"><link rel="prefetch" href="/blog/assets/js/17.d197dcbc.js"><link rel="prefetch" href="/blog/assets/js/18.4b7b558f.js"><link rel="prefetch" href="/blog/assets/js/19.71d9adeb.js"><link rel="prefetch" href="/blog/assets/js/20.921a7be9.js"><link rel="prefetch" href="/blog/assets/js/21.37c53cfe.js"><link rel="prefetch" href="/blog/assets/js/22.d4568056.js"><link rel="prefetch" href="/blog/assets/js/23.09b308cf.js"><link rel="prefetch" href="/blog/assets/js/24.4b342a99.js"><link rel="prefetch" href="/blog/assets/js/25.b2e72b20.js"><link rel="prefetch" href="/blog/assets/js/26.72d2aecb.js"><link rel="prefetch" href="/blog/assets/js/27.e54d6e48.js"><link rel="prefetch" href="/blog/assets/js/28.ff590f32.js"><link rel="prefetch" href="/blog/assets/js/29.c5bba8d3.js"><link rel="prefetch" href="/blog/assets/js/3.1d8dc234.js"><link rel="prefetch" href="/blog/assets/js/30.06622705.js"><link rel="prefetch" href="/blog/assets/js/31.b562121e.js"><link rel="prefetch" href="/blog/assets/js/32.cdc8fcd2.js"><link rel="prefetch" href="/blog/assets/js/33.0471b68b.js"><link rel="prefetch" href="/blog/assets/js/34.9ce5879e.js"><link rel="prefetch" href="/blog/assets/js/35.6ee0a075.js"><link rel="prefetch" href="/blog/assets/js/36.7ef08d9c.js"><link rel="prefetch" href="/blog/assets/js/37.d15d35c1.js"><link rel="prefetch" href="/blog/assets/js/38.ab712803.js"><link rel="prefetch" href="/blog/assets/js/39.23376734.js"><link rel="prefetch" href="/blog/assets/js/4.3af5333b.js"><link rel="prefetch" href="/blog/assets/js/40.6da53d10.js"><link rel="prefetch" href="/blog/assets/js/41.de685141.js"><link rel="prefetch" href="/blog/assets/js/42.504d2067.js"><link rel="prefetch" href="/blog/assets/js/44.b211d311.js"><link rel="prefetch" href="/blog/assets/js/45.fead227f.js"><link rel="prefetch" href="/blog/assets/js/46.aefbe6dd.js"><link rel="prefetch" href="/blog/assets/js/47.a91e528d.js"><link rel="prefetch" href="/blog/assets/js/48.aa058936.js"><link rel="prefetch" href="/blog/assets/js/49.eb882fee.js"><link rel="prefetch" href="/blog/assets/js/6.e1a557a2.js"><link rel="prefetch" href="/blog/assets/js/7.f67b8398.js"><link rel="prefetch" href="/blog/assets/js/8.51a50bb1.js"><link rel="prefetch" href="/blog/assets/js/9.4dccae3e.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.5a668c74.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-007af369><div data-v-007af369><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-007af369 data-v-007af369><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-221076ea data-v-007af369 data-v-007af369><h3 class="title" style="display:none;" data-v-221076ea data-v-221076ea>
+      eaaomk
+    </h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-221076ea data-v-221076ea><input type="password" value="" data-v-221076ea> <span data-v-221076ea>Konck! Knock!</span> <button data-v-221076ea>OK</button></label></div> <div class="hide" data-v-007af369><div data-v-007af369><div id="smart" class="wrapper-page" style="background-image:url(/blog/back01.jpg);background-position-x:center;background-position-y:center;background-size:cover;background-repeat-x:no-repeat;background-repeat-y:no-repeat;" data-v-007af369><header class="navbar" data-v-007af369><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/logo.png" alt="eaaomk" class="logo"> <span class="site-name">eaaomk</span></a> <div class="links"><div id="dayNightSwitch" class="generalWrapper" data-v-52d14190><a class="click" data-v-52d14190><div class="onOff daySwitch" data-v-52d14190><div class="star star1" data-v-52d14190></div> <div class="star star2" data-v-52d14190></div> <div class="star star3" data-v-52d14190></div> <div class="star star4" data-v-52d14190></div> <div class="star star5" data-v-52d14190></div> <div class="star sky" data-v-52d14190></div> <div class="sunMoon" data-v-52d14190><div class="crater crater1" data-v-52d14190></div> <div class="crater crater2" data-v-52d14190></div> <div class="crater crater3" data-v-52d14190></div> <div class="cloud part1" data-v-52d14190></div> <div class="cloud part2" data-v-52d14190></div></div></div></a></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/常用命令/" class="nav-link"><i class="iconfont undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/情景再现/" class="nav-link"><i class="iconfont undefined"></i>
+  情景再现
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/AMS/" class="nav-link"><i class="iconfont undefined"></i>
+  AMS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/Zygote/" class="nav-link"><i class="iconfont undefined"></i>
+  Zygote
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/审计/" class="nav-link"><i class="iconfont undefined"></i>
+  审计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/财务会计/" class="nav-link"><i class="iconfont undefined"></i>
+  财务会计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/进程与线程/" class="nav-link"><i class="iconfont undefined"></i>
+  进程与线程
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/消息传递/" class="nav-link"><i class="iconfont undefined"></i>
+  消息传递
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/处理机调度与死锁/" class="nav-link"><i class="iconfont undefined"></i>
+  处理机调度与死锁
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计思想与代码质量优化/" class="nav-link"><i class="iconfont undefined"></i>
+  设计思想与代码质量优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计模式/" class="nav-link"><i class="iconfont undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/数据结构/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/算法/" class="nav-link"><i class="iconfont undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/VSCODE/" class="nav-link"><i class="iconfont undefined"></i>
+  VSCODE
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-007af369></div> <aside class="sidebar" data-v-007af369><div class="personal-info-wrapper" data-v-3eba7259 data-v-007af369><img src="/blog/logo.png" alt="author-avatar" class="personal-img" data-v-3eba7259> <h3 class="name" data-v-3eba7259>
+    eaaomk
+  </h3> <div class="num" data-v-3eba7259><div data-v-3eba7259><h3 data-v-3eba7259>37</h3> <h6 data-v-3eba7259>文章</h6></div> <div data-v-3eba7259><h3 data-v-3eba7259>10</h3> <h6 data-v-3eba7259>标签</h6></div></div> <hr data-v-3eba7259></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/常用命令/" class="nav-link"><i class="iconfont undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/情景再现/" class="nav-link"><i class="iconfont undefined"></i>
+  情景再现
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/AMS/" class="nav-link"><i class="iconfont undefined"></i>
+  AMS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/Zygote/" class="nav-link"><i class="iconfont undefined"></i>
+  Zygote
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/审计/" class="nav-link"><i class="iconfont undefined"></i>
+  审计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/财务会计/" class="nav-link"><i class="iconfont undefined"></i>
+  财务会计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/进程与线程/" class="nav-link"><i class="iconfont undefined"></i>
+  进程与线程
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/消息传递/" class="nav-link"><i class="iconfont undefined"></i>
+  消息传递
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/处理机调度与死锁/" class="nav-link"><i class="iconfont undefined"></i>
+  处理机调度与死锁
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计思想与代码质量优化/" class="nav-link"><i class="iconfont undefined"></i>
+  设计思想与代码质量优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计模式/" class="nav-link"><i class="iconfont undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/数据结构/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/算法/" class="nav-link"><i class="iconfont undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/VSCODE/" class="nav-link"><i class="iconfont undefined"></i>
+  VSCODE
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-221076ea data-v-007af369><h3 class="title" style="display:none;" data-v-221076ea data-v-221076ea>
+      链表LinkedList
+    </h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-221076ea data-v-221076ea><input type="password" value="" data-v-221076ea> <span data-v-221076ea>Konck! Knock!</span> <button data-v-221076ea>OK</button></label></div></div> <div data-v-007af369><main class="page"><div class="page-title" style="display:none;"><h1 class="title">链表LinkedList</h1> <div class="page-info" data-v-709b7add><i class="iconfont reco-account" data-v-709b7add><span data-v-709b7add>eaaomk</span></i> <i class="iconfont reco-date" data-v-709b7add><span data-v-709b7add>2021-12-25 23:00:00</span></i> <!----> <i class="iconfont reco-tag tags" data-v-709b7add><span class="tag-item" data-v-709b7add>Java</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="链表linkedlist"><a href="#链表linkedlist" class="header-anchor">#</a> 链表LinkedList</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">java<span class="token punctuation">.</span>util</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>function<span class="token punctuation">.</span></span><span class="token class-name">Consumer</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Doubly-linked list implementation of the {@code List} and {@code Deque}
+ * interfaces.  Implements all optional list operations, and permits all
+ * elements (including {@code null}).
+ *
+ * &lt;p&gt;All of the operations perform as could be expected for a doubly-linked
+ * list.  Operations that index into the list will traverse the list from
+ * the beginning or the end, whichever is closer to the specified index.
+ *
+ * &lt;p&gt;&lt;strong&gt;Note that this implementation is not synchronized.&lt;/strong&gt;
+ * If multiple threads access a linked list concurrently, and at least
+ * one of the threads modifies the list structurally, it &lt;i&gt;must&lt;/i&gt; be
+ * synchronized externally.  (A structural modification is any operation
+ * that adds or deletes one or more elements; merely setting the value of
+ * an element is not a structural modification.)  This is typically
+ * accomplished by synchronizing on some object that naturally
+ * encapsulates the list.
+ *
+ * If no such object exists, the list should be &quot;wrapped&quot; using the
+ * {@link Collections#synchronizedList Collections.synchronizedList}
+ * method.  This is best done at creation time, to prevent accidental
+ * unsynchronized access to the list:&lt;pre&gt;
+ *   List list = Collections.synchronizedList(new LinkedList(...));&lt;/pre&gt;
+ *
+ * &lt;p&gt;The iterators returned by this class's {@code iterator} and
+ * {@code listIterator} methods are &lt;i&gt;fail-fast&lt;/i&gt;: if the list is
+ * structurally modified at any time after the iterator is created, in
+ * any way except through the Iterator's own {@code remove} or
+ * {@code add} methods, the iterator will throw a {@link
+ * ConcurrentModificationException}.  Thus, in the face of concurrent
+ * modification, the iterator fails quickly and cleanly, rather than
+ * risking arbitrary, non-deterministic behavior at an undetermined
+ * time in the future.
+ *
+ * &lt;p&gt;Note that the fail-fast behavior of an iterator cannot be guaranteed
+ * as it is, generally speaking, impossible to make any hard guarantees in the
+ * presence of unsynchronized concurrent modification.  Fail-fast iterators
+ * throw {@code ConcurrentModificationException} on a best-effort basis.
+ * Therefore, it would be wrong to write a program that depended on this
+ * exception for its correctness:   &lt;i&gt;the fail-fast behavior of iterators
+ * should be used only to detect bugs.&lt;/i&gt;
+ *
+ * &lt;p&gt;This class is a member of the
+ * &lt;a href=&quot;{@docRoot}/../technotes/guides/collections/index.html&quot;&gt;
+ * Java Collections Framework&lt;/a&gt;.
+ *
+ * @author  Josh Bloch
+ * @see     List
+ * @see     ArrayList
+ * @since 1.2
+ * @param &lt;E&gt; the type of elements held in this collection
+ */</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span>
+    <span class="token keyword">extends</span> <span class="token class-name">AbstractSequentialList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span>
+    <span class="token keyword">implements</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">,</span> <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">,</span> <span class="token class-name">Cloneable</span><span class="token punctuation">,</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span>Serializable</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">transient</span> <span class="token keyword">int</span> size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Pointer to first node.
+     * Invariant: (first == null &amp;&amp; last == null) ||
+     *            (first.prev == null &amp;&amp; first.item != null)
+     */</span>
+    <span class="token keyword">transient</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> first<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Pointer to last node.
+     * Invariant: (first == null &amp;&amp; last == null) ||
+     *            (last.next == null &amp;&amp; last.item != null)
+     */</span>
+    <span class="token keyword">transient</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> last<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Constructs an empty list.
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">LinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Constructs a list containing the elements of the specified
+     * collection, in the order they are returned by the collection's
+     * iterator.
+     *
+     * @param  c the collection whose elements are to be placed into this list
+     * @throws NullPointerException if the specified collection is null
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">LinkedList</span><span class="token punctuation">(</span><span class="token class-name">Collection</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">addAll</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Links e as first element.
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">linkFirst</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> f <span class="token operator">=</span> first<span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> e<span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        first <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>f <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            last <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+            f<span class="token punctuation">.</span>prev <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        size<span class="token operator">++</span><span class="token punctuation">;</span>
+        modCount<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Links e as last element.
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">linkLast</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> l <span class="token operator">=</span> last<span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> e<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        last <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            first <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+            l<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        size<span class="token operator">++</span><span class="token punctuation">;</span>
+        modCount<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Inserts element e before non-null Node succ.
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">linkBefore</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> succ<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// assert succ != null;</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> pred <span class="token operator">=</span> succ<span class="token punctuation">.</span>prev<span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>pred<span class="token punctuation">,</span> e<span class="token punctuation">,</span> succ<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        succ<span class="token punctuation">.</span>prev <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>pred <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            first <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+            pred<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        size<span class="token operator">++</span><span class="token punctuation">;</span>
+        modCount<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Unlinks non-null first node f.
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">E</span> <span class="token function">unlinkFirst</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// assert f == first &amp;&amp; f != null;</span>
+        <span class="token keyword">final</span> <span class="token class-name">E</span> element <span class="token operator">=</span> f<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> next <span class="token operator">=</span> f<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        f<span class="token punctuation">.</span>item <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        f<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// help GC</span>
+        first <span class="token operator">=</span> next<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            last <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+            next<span class="token punctuation">.</span>prev <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        size<span class="token operator">--</span><span class="token punctuation">;</span>
+        modCount<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> element<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Unlinks non-null last node l.
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">E</span> <span class="token function">unlinkLast</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> l<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// assert l == last &amp;&amp; l != null;</span>
+        <span class="token keyword">final</span> <span class="token class-name">E</span> element <span class="token operator">=</span> l<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> prev <span class="token operator">=</span> l<span class="token punctuation">.</span>prev<span class="token punctuation">;</span>
+        l<span class="token punctuation">.</span>item <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        l<span class="token punctuation">.</span>prev <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// help GC</span>
+        last <span class="token operator">=</span> prev<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>prev <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            first <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+            prev<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        size<span class="token operator">--</span><span class="token punctuation">;</span>
+        modCount<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> element<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Unlinks non-null node x.
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">unlink</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// assert x != null;</span>
+        <span class="token keyword">final</span> <span class="token class-name">E</span> element <span class="token operator">=</span> x<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> next <span class="token operator">=</span> x<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> prev <span class="token operator">=</span> x<span class="token punctuation">.</span>prev<span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>prev <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            first <span class="token operator">=</span> next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            prev<span class="token punctuation">.</span>next <span class="token operator">=</span> next<span class="token punctuation">;</span>
+            x<span class="token punctuation">.</span>prev <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            last <span class="token operator">=</span> prev<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            next<span class="token punctuation">.</span>prev <span class="token operator">=</span> prev<span class="token punctuation">;</span>
+            x<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        x<span class="token punctuation">.</span>item <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        size<span class="token operator">--</span><span class="token punctuation">;</span>
+        modCount<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> element<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Returns the first element in this list.
+     *
+     * @return the first element in this list
+     * @throws NoSuchElementException if this list is empty
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> f <span class="token operator">=</span> first<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>f <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NoSuchElementException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> f<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Returns the last element in this list.
+     *
+     * @return the last element in this list
+     * @throws NoSuchElementException if this list is empty
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">getLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> l <span class="token operator">=</span> last<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NoSuchElementException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> l<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Removes and returns the first element from this list.
+     *
+     * @return the first element from this list
+     * @throws NoSuchElementException if this list is empty
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">removeFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> f <span class="token operator">=</span> first<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>f <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NoSuchElementException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">unlinkFirst</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Removes and returns the last element from this list.
+     *
+     * @return the last element from this list
+     * @throws NoSuchElementException if this list is empty
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">removeLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> l <span class="token operator">=</span> last<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NoSuchElementException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">unlinkLast</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Inserts the specified element at the beginning of this list.
+     *
+     * @param e the element to add
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">linkFirst</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Appends the specified element to the end of this list.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #add}.
+     *
+     * @param e the element to add
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addLast</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">linkLast</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Returns {@code true} if this list contains the specified element.
+     * More formally, returns {@code true} if and only if this list contains
+     * at least one element {@code e} such that
+     * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;e==null&amp;nbsp;:&amp;nbsp;o.equals(e))&lt;/tt&gt;.
+     *
+     * @param o element whose presence in this list is to be tested
+     * @return {@code true} if this list contains the specified element
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">contains</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">indexOf</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Returns the number of elements in this list.
+     *
+     * @return the number of elements in this list
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> size<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Appends the specified element to the end of this list.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #addLast}.
+     *
+     * @param e element to be appended to this list
+     * @return {@code true} (as specified by {@link Collection#add})
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">linkLast</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Removes the first occurrence of the specified element from this list,
+     * if it is present.  If this list does not contain the element, it is
+     * unchanged.  More formally, removes the element with the lowest index
+     * {@code i} such that
+     * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;get(i)==null&amp;nbsp;:&amp;nbsp;o.equals(get(i)))&lt;/tt&gt;
+     * (if such an element exists).  Returns {@code true} if this list
+     * contained the specified element (or equivalently, if this list
+     * changed as a result of the call).
+     *
+     * @param o element to be removed from this list, if present
+     * @return {@code true} if this list contained the specified element
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>o <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> first<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span>item <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token function">unlink</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> first<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>o<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token function">unlink</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Appends all of the elements in the specified collection to the end of
+     * this list, in the order that they are returned by the specified
+     * collection's iterator.  The behavior of this operation is undefined if
+     * the specified collection is modified while the operation is in
+     * progress.  (Note that this will occur if the specified collection is
+     * this list, and it's nonempty.)
+     *
+     * @param c collection containing elements to be added to this list
+     * @return {@code true} if this list changed as a result of the call
+     * @throws NullPointerException if the specified collection is null
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">addAll</span><span class="token punctuation">(</span><span class="token class-name">Collection</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">addAll</span><span class="token punctuation">(</span>size<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Inserts all of the elements in the specified collection into this
+     * list, starting at the specified position.  Shifts the element
+     * currently at that position (if any) and any subsequent elements to
+     * the right (increases their indices).  The new elements will appear
+     * in the list in the order that they are returned by the
+     * specified collection's iterator.
+     *
+     * @param index index at which to insert the first element
+     *              from the specified collection
+     * @param c collection containing elements to be added to this list
+     * @return {@code true} if this list changed as a result of the call
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @throws NullPointerException if the specified collection is null
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">addAll</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">,</span> <span class="token class-name">Collection</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">checkPositionIndex</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> numNew <span class="token operator">=</span> a<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>numNew <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> pred<span class="token punctuation">,</span> succ<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">==</span> size<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            succ <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            pred <span class="token operator">=</span> last<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            succ <span class="token operator">=</span> <span class="token function">node</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            pred <span class="token operator">=</span> succ<span class="token punctuation">.</span>prev<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Object</span> o <span class="token operator">:</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">&quot;unchecked&quot;</span><span class="token punctuation">)</span> <span class="token class-name">E</span> e <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">E</span><span class="token punctuation">)</span> o<span class="token punctuation">;</span>
+            <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>pred<span class="token punctuation">,</span> e<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>pred <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                first <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+            <span class="token keyword">else</span>
+                pred<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+            pred <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>succ <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            last <span class="token operator">=</span> pred<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            pred<span class="token punctuation">.</span>next <span class="token operator">=</span> succ<span class="token punctuation">;</span>
+            succ<span class="token punctuation">.</span>prev <span class="token operator">=</span> pred<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        size <span class="token operator">+=</span> numNew<span class="token punctuation">;</span>
+        modCount<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Removes all of the elements from this list.
+     * The list will be empty after this call returns.
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Clearing all of the links between nodes is &quot;unnecessary&quot;, but:</span>
+        <span class="token comment">// - helps a generational GC if the discarded nodes inhabit</span>
+        <span class="token comment">//   more than one generation</span>
+        <span class="token comment">// - is sure to free memory even if there is a reachable Iterator</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> first<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> next <span class="token operator">=</span> x<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            x<span class="token punctuation">.</span>item <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            x<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            x<span class="token punctuation">.</span>prev <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            x <span class="token operator">=</span> next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        first <span class="token operator">=</span> last <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        modCount<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token comment">// Positional Access Operations</span>
+
+    <span class="token comment">/**
+     * Returns the element at the specified position in this list.
+     *
+     * @param index index of the element to return
+     * @return the element at the specified position in this list
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">checkElementIndex</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">node</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Replaces the element at the specified position in this list with the
+     * specified element.
+     *
+     * @param index index of the element to replace
+     * @param element element to be stored at the specified position
+     * @return the element previously at the specified position
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">set</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">,</span> <span class="token class-name">E</span> element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">checkElementIndex</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> <span class="token function">node</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">E</span> oldVal <span class="token operator">=</span> x<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+        x<span class="token punctuation">.</span>item <span class="token operator">=</span> element<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> oldVal<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Inserts the specified element at the specified position in this list.
+     * Shifts the element currently at that position (if any) and any
+     * subsequent elements to the right (adds one to their indices).
+     *
+     * @param index index at which the specified element is to be inserted
+     * @param element element to be inserted
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">,</span> <span class="token class-name">E</span> element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">checkPositionIndex</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">==</span> size<span class="token punctuation">)</span>
+            <span class="token function">linkLast</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+            <span class="token function">linkBefore</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> <span class="token function">node</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Removes the element at the specified position in this list.  Shifts any
+     * subsequent elements to the left (subtracts one from their indices).
+     * Returns the element that was removed from the list.
+     *
+     * @param index the index of the element to be removed
+     * @return the element previously at the specified position
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">checkElementIndex</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">unlink</span><span class="token punctuation">(</span><span class="token function">node</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Tells if the argument is the index of an existing element.
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">isElementIndex</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> index <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> index <span class="token operator">&lt;</span> size<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Tells if the argument is the index of a valid position for an
+     * iterator or an add operation.
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">isPositionIndex</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> index <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> index <span class="token operator">&lt;=</span> size<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Constructs an IndexOutOfBoundsException detail message.
+     * Of the many possible refactorings of the error handling code,
+     * this &quot;outlining&quot; performs best with both server and client VMs.
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> <span class="token function">outOfBoundsMsg</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Index: &quot;</span><span class="token operator">+</span>index<span class="token operator">+</span><span class="token string">&quot;, Size: &quot;</span><span class="token operator">+</span>size<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">checkElementIndex</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isElementIndex</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IndexOutOfBoundsException</span><span class="token punctuation">(</span><span class="token function">outOfBoundsMsg</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">checkPositionIndex</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isPositionIndex</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IndexOutOfBoundsException</span><span class="token punctuation">(</span><span class="token function">outOfBoundsMsg</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Returns the (non-null) Node at the specified element index.
+     */</span>
+    <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token function">node</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// assert isElementIndex(index);</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">&lt;</span> <span class="token punctuation">(</span>size <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> first<span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> index<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+                x <span class="token operator">=</span> x<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> last<span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> size <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;</span> index<span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span>
+                x <span class="token operator">=</span> x<span class="token punctuation">.</span>prev<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Search Operations</span>
+
+    <span class="token comment">/**
+     * Returns the index of the first occurrence of the specified element
+     * in this list, or -1 if this list does not contain the element.
+     * More formally, returns the lowest index {@code i} such that
+     * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;get(i)==null&amp;nbsp;:&amp;nbsp;o.equals(get(i)))&lt;/tt&gt;,
+     * or -1 if there is no such index.
+     *
+     * @param o element to search for
+     * @return the index of the first occurrence of the specified element in
+     *         this list, or -1 if this list does not contain the element
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>o <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> first<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span>item <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                    <span class="token keyword">return</span> index<span class="token punctuation">;</span>
+                index<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> first<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>o<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token keyword">return</span> index<span class="token punctuation">;</span>
+                index<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Returns the index of the last occurrence of the specified element
+     * in this list, or -1 if this list does not contain the element.
+     * More formally, returns the highest index {@code i} such that
+     * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;get(i)==null&amp;nbsp;:&amp;nbsp;o.equals(get(i)))&lt;/tt&gt;,
+     * or -1 if there is no such index.
+     *
+     * @param o element to search for
+     * @return the index of the last occurrence of the specified element in
+     *         this list, or -1 if this list does not contain the element
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> size<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>o <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> last<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>prev<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                index<span class="token operator">--</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span>item <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                    <span class="token keyword">return</span> index<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> last<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>prev<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                index<span class="token operator">--</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>o<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token keyword">return</span> index<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Queue operations.</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the head (first element) of this list.
+     *
+     * @return the head of this list, or {@code null} if this list is empty
+     * @since 1.5
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> f <span class="token operator">=</span> first<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>f <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> f<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the head (first element) of this list.
+     *
+     * @return the head of this list
+     * @throws NoSuchElementException if this list is empty
+     * @since 1.5
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the head (first element) of this list.
+     *
+     * @return the head of this list, or {@code null} if this list is empty
+     * @since 1.5
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> f <span class="token operator">=</span> first<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>f <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> <span class="token function">unlinkFirst</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the head (first element) of this list.
+     *
+     * @return the head of this list
+     * @throws NoSuchElementException if this list is empty
+     * @since 1.5
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">removeFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Adds the specified element as the tail (last element) of this list.
+     *
+     * @param e the element to add
+     * @return {@code true} (as specified by {@link Queue#offer})
+     * @since 1.5
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">offer</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">add</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Deque operations</span>
+    <span class="token comment">/**
+     * Inserts the specified element at the front of this list.
+     *
+     * @param e the element to insert
+     * @return {@code true} (as specified by {@link Deque#offerFirst})
+     * @since 1.6
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">offerFirst</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">addFirst</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Inserts the specified element at the end of this list.
+     *
+     * @param e the element to insert
+     * @return {@code true} (as specified by {@link Deque#offerLast})
+     * @since 1.6
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">offerLast</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">addLast</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the first element of this list,
+     * or returns {@code null} if this list is empty.
+     *
+     * @return the first element of this list, or {@code null}
+     *         if this list is empty
+     * @since 1.6
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">peekFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> f <span class="token operator">=</span> first<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>f <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> f<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the last element of this list,
+     * or returns {@code null} if this list is empty.
+     *
+     * @return the last element of this list, or {@code null}
+     *         if this list is empty
+     * @since 1.6
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">peekLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> l <span class="token operator">=</span> last<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>l <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> l<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the first element of this list,
+     * or returns {@code null} if this list is empty.
+     *
+     * @return the first element of this list, or {@code null} if
+     *     this list is empty
+     * @since 1.6
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">pollFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> f <span class="token operator">=</span> first<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>f <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> <span class="token function">unlinkFirst</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the last element of this list,
+     * or returns {@code null} if this list is empty.
+     *
+     * @return the last element of this list, or {@code null} if
+     *     this list is empty
+     * @since 1.6
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">pollLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> l <span class="token operator">=</span> last<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>l <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> <span class="token function">unlinkLast</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Pushes an element onto the stack represented by this list.  In other
+     * words, inserts the element at the front of this list.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #addFirst}.
+     *
+     * @param e the element to push
+     * @since 1.6
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">addFirst</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Pops an element from the stack represented by this list.  In other
+     * words, removes and returns the first element of this list.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #removeFirst()}.
+     *
+     * @return the element at the front of this list (which is the top
+     *         of the stack represented by this list)
+     * @throws NoSuchElementException if this list is empty
+     * @since 1.6
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">removeFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Removes the first occurrence of the specified element in this
+     * list (when traversing the list from head to tail).  If the list
+     * does not contain the element, it is unchanged.
+     *
+     * @param o element to be removed from this list, if present
+     * @return {@code true} if the list contained the specified element
+     * @since 1.6
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">removeFirstOccurrence</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">remove</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Removes the last occurrence of the specified element in this
+     * list (when traversing the list from head to tail).  If the list
+     * does not contain the element, it is unchanged.
+     *
+     * @param o element to be removed from this list, if present
+     * @return {@code true} if the list contained the specified element
+     * @since 1.6
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">removeLastOccurrence</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>o <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> last<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>prev<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span>item <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token function">unlink</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> last<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>prev<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>o<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token function">unlink</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Returns a list-iterator of the elements in this list (in proper
+     * sequence), starting at the specified position in the list.
+     * Obeys the general contract of {@code List.listIterator(int)}.&lt;p&gt;
+     *
+     * The list-iterator is &lt;i&gt;fail-fast&lt;/i&gt;: if the list is structurally
+     * modified at any time after the Iterator is created, in any way except
+     * through the list-iterator's own {@code remove} or {@code add}
+     * methods, the list-iterator will throw a
+     * {@code ConcurrentModificationException}.  Thus, in the face of
+     * concurrent modification, the iterator fails quickly and cleanly, rather
+     * than risking arbitrary, non-deterministic behavior at an undetermined
+     * time in the future.
+     *
+     * @param index index of the first element to be returned from the
+     *              list-iterator (by a call to {@code next})
+     * @return a ListIterator of the elements in this list (in proper
+     *         sequence), starting at the specified position in the list
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @see List#listIterator(int)
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">ListIterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token function">listIterator</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">checkPositionIndex</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ListItr</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">ListItr</span> <span class="token keyword">implements</span> <span class="token class-name">ListIterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> lastReturned<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> next<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> nextIndex<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> expectedModCount <span class="token operator">=</span> modCount<span class="token punctuation">;</span>
+
+        <span class="token class-name">ListItr</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// assert isPositionIndex(index);</span>
+            next <span class="token operator">=</span> <span class="token punctuation">(</span>index <span class="token operator">==</span> size<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> <span class="token function">node</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            nextIndex <span class="token operator">=</span> index<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> nextIndex <span class="token operator">&lt;</span> size<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">checkForComodification</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NoSuchElementException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            lastReturned <span class="token operator">=</span> next<span class="token punctuation">;</span>
+            next <span class="token operator">=</span> next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            nextIndex<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> lastReturned<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasPrevious</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> nextIndex <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">previous</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">checkForComodification</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">hasPrevious</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NoSuchElementException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            lastReturned <span class="token operator">=</span> next <span class="token operator">=</span> <span class="token punctuation">(</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> last <span class="token operator">:</span> next<span class="token punctuation">.</span>prev<span class="token punctuation">;</span>
+            nextIndex<span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> lastReturned<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">nextIndex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> nextIndex<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">previousIndex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> nextIndex <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">checkForComodification</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>lastReturned <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> lastNext <span class="token operator">=</span> lastReturned<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token function">unlink</span><span class="token punctuation">(</span>lastReturned<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>next <span class="token operator">==</span> lastReturned<span class="token punctuation">)</span>
+                next <span class="token operator">=</span> lastNext<span class="token punctuation">;</span>
+            <span class="token keyword">else</span>
+                nextIndex<span class="token operator">--</span><span class="token punctuation">;</span>
+            lastReturned <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            expectedModCount<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">set</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>lastReturned <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">checkForComodification</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lastReturned<span class="token punctuation">.</span>item <span class="token operator">=</span> e<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">checkForComodification</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            lastReturned <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                <span class="token function">linkLast</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span>
+                <span class="token function">linkBefore</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            nextIndex<span class="token operator">++</span><span class="token punctuation">;</span>
+            expectedModCount<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">forEachRemaining</span><span class="token punctuation">(</span><span class="token class-name">Consumer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>modCount <span class="token operator">==</span> expectedModCount <span class="token operator">&amp;&amp;</span> nextIndex <span class="token operator">&lt;</span> size<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                action<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span>next<span class="token punctuation">.</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                lastReturned <span class="token operator">=</span> next<span class="token punctuation">;</span>
+                next <span class="token operator">=</span> next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+                nextIndex<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">checkForComodification</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">checkForComodification</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>modCount <span class="token operator">!=</span> expectedModCount<span class="token punctuation">)</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentModificationException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+        <span class="token class-name">E</span> item<span class="token punctuation">;</span>
+        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> next<span class="token punctuation">;</span>
+        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> prev<span class="token punctuation">;</span>
+
+        <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> prev<span class="token punctuation">,</span> <span class="token class-name">E</span> element<span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>item <span class="token operator">=</span> element<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> next<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>prev <span class="token operator">=</span> prev<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @since 1.6
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token function">descendingIterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DescendingIterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Adapter to provide descending iterators via ListItr.previous
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">DescendingIterator</span> <span class="token keyword">implements</span> <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">ListItr</span> itr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListItr</span><span class="token punctuation">(</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> itr<span class="token punctuation">.</span><span class="token function">hasPrevious</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> itr<span class="token punctuation">.</span><span class="token function">previous</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            itr<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">&quot;unchecked&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token function">superClone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">CloneNotSupportedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">InternalError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Returns a shallow copy of this {@code LinkedList}. (The elements
+     * themselves are not cloned.)
+     *
+     * @return a shallow copy of this {@code LinkedList} instance
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> clone <span class="token operator">=</span> <span class="token function">superClone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Put clone into &quot;virgin&quot; state</span>
+        clone<span class="token punctuation">.</span>first <span class="token operator">=</span> clone<span class="token punctuation">.</span>last <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        clone<span class="token punctuation">.</span>size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        clone<span class="token punctuation">.</span>modCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Initialize clone with our elements</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> first<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+            clone<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> clone<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Returns an array containing all of the elements in this list
+     * in proper sequence (from first to last element).
+     *
+     * &lt;p&gt;The returned array will be &quot;safe&quot; in that no references to it are
+     * maintained by this list.  (In other words, this method must allocate
+     * a new array).  The caller is thus free to modify the returned array.
+     *
+     * &lt;p&gt;This method acts as bridge between array-based and collection-based
+     * APIs.
+     *
+     * @return an array containing all of the elements in this list
+     *         in proper sequence
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span>size<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> first<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+            result<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Returns an array containing all of the elements in this list in
+     * proper sequence (from first to last element); the runtime type of
+     * the returned array is that of the specified array.  If the list fits
+     * in the specified array, it is returned therein.  Otherwise, a new
+     * array is allocated with the runtime type of the specified array and
+     * the size of this list.
+     *
+     * &lt;p&gt;If the list fits in the specified array with room to spare (i.e.,
+     * the array has more elements than the list), the element in the array
+     * immediately following the end of the list is set to {@code null}.
+     * (This is useful in determining the length of the list &lt;i&gt;only&lt;/i&gt; if
+     * the caller knows that the list does not contain any null elements.)
+     *
+     * &lt;p&gt;Like the {@link #toArray()} method, this method acts as bridge between
+     * array-based and collection-based APIs.  Further, this method allows
+     * precise control over the runtime type of the output array, and may,
+     * under certain circumstances, be used to save allocation costs.
+     *
+     * &lt;p&gt;Suppose {@code x} is a list known to contain only strings.
+     * The following code can be used to dump the list into a newly
+     * allocated array of {@code String}:
+     *
+     * &lt;pre&gt;
+     *     String[] y = x.toArray(new String[0]);&lt;/pre&gt;
+     *
+     * Note that {@code toArray(new Object[0])} is identical in function to
+     * {@code toArray()}.
+     *
+     * @param a the array into which the elements of the list are to
+     *          be stored, if it is big enough; otherwise, a new array of the
+     *          same runtime type is allocated for this purpose.
+     * @return an array containing the elements of the list
+     * @throws ArrayStoreException if the runtime type of the specified array
+     *         is not a supertype of the runtime type of every element in
+     *         this list
+     * @throws NullPointerException if the specified array is null
+     */</span>
+    <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">&quot;unchecked&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> <span class="token class-name">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">toArray</span><span class="token punctuation">(</span><span class="token class-name">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> size<span class="token punctuation">)</span>
+            a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span></span>Array</span><span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span>
+                                a<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getComponentType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> result <span class="token operator">=</span> a<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> first<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+            result<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> size<span class="token punctuation">)</span>
+            a<span class="token punctuation">[</span>size<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token number">876323262645176354L</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Saves the state of this {@code LinkedList} instance to a stream
+     * (that is, serializes it).
+     *
+     * @serialData The size of the list (the number of elements it
+     *             contains) is emitted (int), followed by all of its
+     *             elements (each an Object) in the proper order.
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">writeObject</span><span class="token punctuation">(</span><span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span>ObjectOutputStream</span> s<span class="token punctuation">)</span>
+        <span class="token keyword">throws</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span>IOException</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Write out any hidden serialization magic</span>
+        s<span class="token punctuation">.</span><span class="token function">defaultWriteObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Write out size</span>
+        s<span class="token punctuation">.</span><span class="token function">writeInt</span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Write out all elements in the proper order.</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> x <span class="token operator">=</span> first<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> x<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+            s<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Reconstitutes this {@code LinkedList} instance from a stream
+     * (that is, deserializes it).
+     */</span>
+    <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">&quot;unchecked&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">readObject</span><span class="token punctuation">(</span><span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span>ObjectInputStream</span> s<span class="token punctuation">)</span>
+        <span class="token keyword">throws</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span>IOException</span><span class="token punctuation">,</span> <span class="token class-name">ClassNotFoundException</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Read in any hidden serialization magic</span>
+        s<span class="token punctuation">.</span><span class="token function">defaultReadObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Read in size</span>
+        <span class="token keyword">int</span> size <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">readInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Read in all elements in the proper order.</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token function">linkLast</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">E</span><span class="token punctuation">)</span>s<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Creates a &lt;em&gt;&lt;a href=&quot;Spliterator.html#binding&quot;&gt;late-binding&lt;/a&gt;&lt;/em&gt;
+     * and &lt;em&gt;fail-fast&lt;/em&gt; {@link Spliterator} over the elements in this
+     * list.
+     *
+     * &lt;p&gt;The {@code Spliterator} reports {@link Spliterator#SIZED} and
+     * {@link Spliterator#ORDERED}.  Overriding implementations should document
+     * the reporting of additional characteristic values.
+     *
+     * @implNote
+     * The {@code Spliterator} additionally reports {@link Spliterator#SUBSIZED}
+     * and implements {@code trySplit} to permit limited parallelism..
+     *
+     * @return a {@code Spliterator} over the elements in this list
+     * @since 1.8
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Spliterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token function">spliterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">LLSpliterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/** A customized variant of Spliterators.IteratorSpliterator */</span>
+    <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">LLSpliterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token keyword">implements</span> <span class="token class-name">Spliterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> BATCH_UNIT <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span>  <span class="token comment">// batch array size increment</span>
+        <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> MAX_BATCH <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">25</span><span class="token punctuation">;</span>  <span class="token comment">// max batch array size;</span>
+        <span class="token keyword">final</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> list<span class="token punctuation">;</span> <span class="token comment">// null OK unless traversed</span>
+        <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> current<span class="token punctuation">;</span>      <span class="token comment">// current node; null until initialized</span>
+        <span class="token keyword">int</span> est<span class="token punctuation">;</span>              <span class="token comment">// size estimate; -1 until first needed</span>
+        <span class="token keyword">int</span> expectedModCount<span class="token punctuation">;</span> <span class="token comment">// initialized when est set</span>
+        <span class="token keyword">int</span> batch<span class="token punctuation">;</span>            <span class="token comment">// batch size for splits</span>
+
+        <span class="token class-name">LLSpliterator</span><span class="token punctuation">(</span><span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> list<span class="token punctuation">,</span> <span class="token keyword">int</span> est<span class="token punctuation">,</span> <span class="token keyword">int</span> expectedModCount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>list <span class="token operator">=</span> list<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>est <span class="token operator">=</span> est<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>expectedModCount <span class="token operator">=</span> expectedModCount<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">getEst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> s<span class="token punctuation">;</span> <span class="token comment">// force initialization</span>
+            <span class="token keyword">final</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> lst<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>s <span class="token operator">=</span> est<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>lst <span class="token operator">=</span> list<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                    s <span class="token operator">=</span> est <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    expectedModCount <span class="token operator">=</span> lst<span class="token punctuation">.</span>modCount<span class="token punctuation">;</span>
+                    current <span class="token operator">=</span> lst<span class="token punctuation">.</span>first<span class="token punctuation">;</span>
+                    s <span class="token operator">=</span> est <span class="token operator">=</span> lst<span class="token punctuation">.</span>size<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">long</span> <span class="token function">estimateSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span> <span class="token function">getEst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">Spliterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token function">trySplit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> p<span class="token punctuation">;</span>
+            <span class="token keyword">int</span> s <span class="token operator">=</span> <span class="token function">getEst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>s <span class="token operator">&gt;</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>p <span class="token operator">=</span> current<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> n <span class="token operator">=</span> batch <span class="token operator">+</span> BATCH_UNIT<span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&gt;</span> s<span class="token punctuation">)</span>
+                    n <span class="token operator">=</span> s<span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&gt;</span> MAX_BATCH<span class="token punctuation">)</span>
+                    n <span class="token operator">=</span> MAX_BATCH<span class="token punctuation">;</span>
+                <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">do</span> <span class="token punctuation">{</span> a<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">.</span>item<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>p <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                current <span class="token operator">=</span> p<span class="token punctuation">;</span>
+                batch <span class="token operator">=</span> j<span class="token punctuation">;</span>
+                est <span class="token operator">=</span> s <span class="token operator">-</span> j<span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token class-name">Spliterators</span><span class="token punctuation">.</span><span class="token function">spliterator</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> j<span class="token punctuation">,</span> <span class="token class-name">Spliterator</span><span class="token punctuation">.</span>ORDERED<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">forEachRemaining</span><span class="token punctuation">(</span><span class="token class-name">Consumer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> p<span class="token punctuation">;</span> <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>action <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NullPointerException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>n <span class="token operator">=</span> <span class="token function">getEst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>p <span class="token operator">=</span> current<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                current <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                est <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">do</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">E</span> e <span class="token operator">=</span> p<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+                    p <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+                    action<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">--</span>n <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>list<span class="token punctuation">.</span>modCount <span class="token operator">!=</span> expectedModCount<span class="token punctuation">)</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentModificationException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">tryAdvance</span><span class="token punctuation">(</span><span class="token class-name">Consumer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">super</span> <span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> p<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>action <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NullPointerException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">getEst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>p <span class="token operator">=</span> current<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token operator">--</span>est<span class="token punctuation">;</span>
+                <span class="token class-name">E</span> e <span class="token operator">=</span> p<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+                current <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+                action<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>list<span class="token punctuation">.</span>modCount <span class="token operator">!=</span> expectedModCount<span class="token punctuation">)</span>
+                    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentModificationException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">characteristics</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token class-name">Spliterator</span><span class="token punctuation">.</span>ORDERED <span class="token operator">|</span> <span class="token class-name">Spliterator</span><span class="token punctuation">.</span>SIZED <span class="token operator">|</span> <span class="token class-name">Spliterator</span><span class="token punctuation">.</span>SUBSIZED<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----> <!----></main> <!----></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="Sakura" data-v-017cf06a><canvas id="canvas_sakura" style="z-index:20;" data-v-017cf06a></canvas></div><APlayer audio="" fixed="true" mini="true" autoplay="autoplay" theme="#b7daff" loop="loop" order="list" preload="auto" volume="0.7" mutex="true" lrc-type="3" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer></div></div>
+    <script src="/blog/assets/js/app.19518fa2.js" defer></script><script src="/blog/assets/js/5.4859d6c2.js" defer></script><script src="/blog/assets/js/1.5aece763.js" defer></script><script src="/blog/assets/js/43.678c8e5c.js" defer></script>
+  </body>
+</html>

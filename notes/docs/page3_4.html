@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>队列 | eaaomk</title>
+    <meta name="generator" content="VuePress 1.9.4">
+    <link rel="icon" href="/blog/logo.png">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.5a668c74.css" as="style"><link rel="preload" href="/blog/assets/js/app.19518fa2.js" as="script"><link rel="preload" href="/blog/assets/js/5.4859d6c2.js" as="script"><link rel="preload" href="/blog/assets/js/1.5aece763.js" as="script"><link rel="preload" href="/blog/assets/js/45.fead227f.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.d5bce0ea.js"><link rel="prefetch" href="/blog/assets/js/11.76facc45.js"><link rel="prefetch" href="/blog/assets/js/12.19550e35.js"><link rel="prefetch" href="/blog/assets/js/13.e756f87b.js"><link rel="prefetch" href="/blog/assets/js/14.414d59aa.js"><link rel="prefetch" href="/blog/assets/js/15.6c9f042b.js"><link rel="prefetch" href="/blog/assets/js/16.f5af03e6.js"><link rel="prefetch" href="/blog/assets/js/17.d197dcbc.js"><link rel="prefetch" href="/blog/assets/js/18.4b7b558f.js"><link rel="prefetch" href="/blog/assets/js/19.71d9adeb.js"><link rel="prefetch" href="/blog/assets/js/20.921a7be9.js"><link rel="prefetch" href="/blog/assets/js/21.37c53cfe.js"><link rel="prefetch" href="/blog/assets/js/22.d4568056.js"><link rel="prefetch" href="/blog/assets/js/23.09b308cf.js"><link rel="prefetch" href="/blog/assets/js/24.4b342a99.js"><link rel="prefetch" href="/blog/assets/js/25.b2e72b20.js"><link rel="prefetch" href="/blog/assets/js/26.72d2aecb.js"><link rel="prefetch" href="/blog/assets/js/27.e54d6e48.js"><link rel="prefetch" href="/blog/assets/js/28.ff590f32.js"><link rel="prefetch" href="/blog/assets/js/29.c5bba8d3.js"><link rel="prefetch" href="/blog/assets/js/3.1d8dc234.js"><link rel="prefetch" href="/blog/assets/js/30.06622705.js"><link rel="prefetch" href="/blog/assets/js/31.b562121e.js"><link rel="prefetch" href="/blog/assets/js/32.cdc8fcd2.js"><link rel="prefetch" href="/blog/assets/js/33.0471b68b.js"><link rel="prefetch" href="/blog/assets/js/34.9ce5879e.js"><link rel="prefetch" href="/blog/assets/js/35.6ee0a075.js"><link rel="prefetch" href="/blog/assets/js/36.7ef08d9c.js"><link rel="prefetch" href="/blog/assets/js/37.d15d35c1.js"><link rel="prefetch" href="/blog/assets/js/38.ab712803.js"><link rel="prefetch" href="/blog/assets/js/39.23376734.js"><link rel="prefetch" href="/blog/assets/js/4.3af5333b.js"><link rel="prefetch" href="/blog/assets/js/40.6da53d10.js"><link rel="prefetch" href="/blog/assets/js/41.de685141.js"><link rel="prefetch" href="/blog/assets/js/42.504d2067.js"><link rel="prefetch" href="/blog/assets/js/43.678c8e5c.js"><link rel="prefetch" href="/blog/assets/js/44.b211d311.js"><link rel="prefetch" href="/blog/assets/js/46.aefbe6dd.js"><link rel="prefetch" href="/blog/assets/js/47.a91e528d.js"><link rel="prefetch" href="/blog/assets/js/48.aa058936.js"><link rel="prefetch" href="/blog/assets/js/49.eb882fee.js"><link rel="prefetch" href="/blog/assets/js/6.e1a557a2.js"><link rel="prefetch" href="/blog/assets/js/7.f67b8398.js"><link rel="prefetch" href="/blog/assets/js/8.51a50bb1.js"><link rel="prefetch" href="/blog/assets/js/9.4dccae3e.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.5a668c74.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-007af369><div data-v-007af369><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-007af369 data-v-007af369><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-221076ea data-v-007af369 data-v-007af369><h3 class="title" style="display:none;" data-v-221076ea data-v-221076ea>
+      eaaomk
+    </h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-221076ea data-v-221076ea><input type="password" value="" data-v-221076ea> <span data-v-221076ea>Konck! Knock!</span> <button data-v-221076ea>OK</button></label></div> <div class="hide" data-v-007af369><div data-v-007af369><div id="smart" class="wrapper-page" style="background-image:url(/blog/back01.jpg);background-position-x:center;background-position-y:center;background-size:cover;background-repeat-x:no-repeat;background-repeat-y:no-repeat;" data-v-007af369><header class="navbar" data-v-007af369><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/logo.png" alt="eaaomk" class="logo"> <span class="site-name">eaaomk</span></a> <div class="links"><div id="dayNightSwitch" class="generalWrapper" data-v-52d14190><a class="click" data-v-52d14190><div class="onOff daySwitch" data-v-52d14190><div class="star star1" data-v-52d14190></div> <div class="star star2" data-v-52d14190></div> <div class="star star3" data-v-52d14190></div> <div class="star star4" data-v-52d14190></div> <div class="star star5" data-v-52d14190></div> <div class="star sky" data-v-52d14190></div> <div class="sunMoon" data-v-52d14190><div class="crater crater1" data-v-52d14190></div> <div class="crater crater2" data-v-52d14190></div> <div class="crater crater3" data-v-52d14190></div> <div class="cloud part1" data-v-52d14190></div> <div class="cloud part2" data-v-52d14190></div></div></div></a></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/常用命令/" class="nav-link"><i class="iconfont undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/情景再现/" class="nav-link"><i class="iconfont undefined"></i>
+  情景再现
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/AMS/" class="nav-link"><i class="iconfont undefined"></i>
+  AMS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/Zygote/" class="nav-link"><i class="iconfont undefined"></i>
+  Zygote
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/审计/" class="nav-link"><i class="iconfont undefined"></i>
+  审计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/财务会计/" class="nav-link"><i class="iconfont undefined"></i>
+  财务会计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/进程与线程/" class="nav-link"><i class="iconfont undefined"></i>
+  进程与线程
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/消息传递/" class="nav-link"><i class="iconfont undefined"></i>
+  消息传递
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/处理机调度与死锁/" class="nav-link"><i class="iconfont undefined"></i>
+  处理机调度与死锁
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计思想与代码质量优化/" class="nav-link"><i class="iconfont undefined"></i>
+  设计思想与代码质量优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计模式/" class="nav-link"><i class="iconfont undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/数据结构/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/算法/" class="nav-link"><i class="iconfont undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/VSCODE/" class="nav-link"><i class="iconfont undefined"></i>
+  VSCODE
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-007af369></div> <aside class="sidebar" data-v-007af369><div class="personal-info-wrapper" data-v-3eba7259 data-v-007af369><img src="/blog/logo.png" alt="author-avatar" class="personal-img" data-v-3eba7259> <h3 class="name" data-v-3eba7259>
+    eaaomk
+  </h3> <div class="num" data-v-3eba7259><div data-v-3eba7259><h3 data-v-3eba7259>37</h3> <h6 data-v-3eba7259>文章</h6></div> <div data-v-3eba7259><h3 data-v-3eba7259>10</h3> <h6 data-v-3eba7259>标签</h6></div></div> <hr data-v-3eba7259></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/常用命令/" class="nav-link"><i class="iconfont undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/情景再现/" class="nav-link"><i class="iconfont undefined"></i>
+  情景再现
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/AMS/" class="nav-link"><i class="iconfont undefined"></i>
+  AMS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/Zygote/" class="nav-link"><i class="iconfont undefined"></i>
+  Zygote
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/审计/" class="nav-link"><i class="iconfont undefined"></i>
+  审计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/财务会计/" class="nav-link"><i class="iconfont undefined"></i>
+  财务会计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/进程与线程/" class="nav-link"><i class="iconfont undefined"></i>
+  进程与线程
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/消息传递/" class="nav-link"><i class="iconfont undefined"></i>
+  消息传递
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/处理机调度与死锁/" class="nav-link"><i class="iconfont undefined"></i>
+  处理机调度与死锁
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计思想与代码质量优化/" class="nav-link"><i class="iconfont undefined"></i>
+  设计思想与代码质量优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计模式/" class="nav-link"><i class="iconfont undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/数据结构/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/算法/" class="nav-link"><i class="iconfont undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/VSCODE/" class="nav-link"><i class="iconfont undefined"></i>
+  VSCODE
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-221076ea data-v-007af369><h3 class="title" style="display:none;" data-v-221076ea data-v-221076ea>
+      队列
+    </h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-221076ea data-v-221076ea><input type="password" value="" data-v-221076ea> <span data-v-221076ea>Konck! Knock!</span> <button data-v-221076ea>OK</button></label></div></div> <div data-v-007af369><main class="page"><div class="page-title" style="display:none;"><h1 class="title">队列</h1> <div class="page-info" data-v-709b7add><i class="iconfont reco-account" data-v-709b7add><span data-v-709b7add>eaaomk</span></i> <i class="iconfont reco-date" data-v-709b7add><span data-v-709b7add>2021-12-25 23:00:00</span></i> <!----> <i class="iconfont reco-tag tags" data-v-709b7add><span class="tag-item" data-v-709b7add>Java</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="队列queue"><a href="#队列queue" class="header-anchor">#</a> 队列Queue</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">java<span class="token punctuation">.</span>util</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * A collection designed for holding elements prior to processing.
+ * Besides basic {@link java.util.Collection Collection} operations,
+ * queues provide additional insertion, extraction, and inspection
+ * operations.  Each of these methods exists in two forms: one throws
+ * an exception if the operation fails, the other returns a special
+ * value (either {@code null} or {@code false}, depending on the
+ * operation).  The latter form of the insert operation is designed
+ * specifically for use with capacity-restricted {@code Queue}
+ * implementations; in most implementations, insert operations cannot
+ * fail.
+ *
+ * &lt;table BORDER CELLPADDING=3 CELLSPACING=1&gt;
+ * &lt;caption&gt;Summary of Queue methods&lt;/caption&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Throws exception&lt;/em&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Returns special value&lt;/em&gt;&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Insert&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{@link Queue#add add(e)}&lt;/td&gt;
+ *    &lt;td&gt;{@link Queue#offer offer(e)}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Remove&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{@link Queue#remove remove()}&lt;/td&gt;
+ *    &lt;td&gt;{@link Queue#poll poll()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Examine&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{@link Queue#element element()}&lt;/td&gt;
+ *    &lt;td&gt;{@link Queue#peek peek()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ * &lt;/table&gt;
+ *
+ * &lt;p&gt;Queues typically, but do not necessarily, order elements in a
+ * FIFO (first-in-first-out) manner.  Among the exceptions are
+ * priority queues, which order elements according to a supplied
+ * comparator, or the elements' natural ordering, and LIFO queues (or
+ * stacks) which order the elements LIFO (last-in-first-out).
+ * Whatever the ordering used, the &lt;em&gt;head&lt;/em&gt; of the queue is that
+ * element which would be removed by a call to {@link #remove() } or
+ * {@link #poll()}.  In a FIFO queue, all new elements are inserted at
+ * the &lt;em&gt;tail&lt;/em&gt; of the queue. Other kinds of queues may use
+ * different placement rules.  Every {@code Queue} implementation
+ * must specify its ordering properties.
+ *
+ * &lt;p&gt;The {@link #offer offer} method inserts an element if possible,
+ * otherwise returning {@code false}.  This differs from the {@link
+ * java.util.Collection#add Collection.add} method, which can fail to
+ * add an element only by throwing an unchecked exception.  The
+ * {@code offer} method is designed for use when failure is a normal,
+ * rather than exceptional occurrence, for example, in fixed-capacity
+ * (or &amp;quot;bounded&amp;quot;) queues.
+ *
+ * &lt;p&gt;The {@link #remove()} and {@link #poll()} methods remove and
+ * return the head of the queue.
+ * Exactly which element is removed from the queue is a
+ * function of the queue's ordering policy, which differs from
+ * implementation to implementation. The {@code remove()} and
+ * {@code poll()} methods differ only in their behavior when the
+ * queue is empty: the {@code remove()} method throws an exception,
+ * while the {@code poll()} method returns {@code null}.
+ *
+ * &lt;p&gt;The {@link #element()} and {@link #peek()} methods return, but do
+ * not remove, the head of the queue.
+ *
+ * &lt;p&gt;The {@code Queue} interface does not define the &lt;i&gt;blocking queue
+ * methods&lt;/i&gt;, which are common in concurrent programming.  These methods,
+ * which wait for elements to appear or for space to become available, are
+ * defined in the {@link java.util.concurrent.BlockingQueue} interface, which
+ * extends this interface.
+ *
+ * &lt;p&gt;{@code Queue} implementations generally do not allow insertion
+ * of {@code null} elements, although some implementations, such as
+ * {@link LinkedList}, do not prohibit insertion of {@code null}.
+ * Even in the implementations that permit it, {@code null} should
+ * not be inserted into a {@code Queue}, as {@code null} is also
+ * used as a special return value by the {@code poll} method to
+ * indicate that the queue contains no elements.
+ *
+ * &lt;p&gt;{@code Queue} implementations generally do not define
+ * element-based versions of methods {@code equals} and
+ * {@code hashCode} but instead inherit the identity based versions
+ * from class {@code Object}, because element-based equality is not
+ * always well-defined for queues with the same elements but different
+ * ordering properties.
+ *
+ *
+ * &lt;p&gt;This interface is a member of the
+ * &lt;a href=&quot;{@docRoot}/../technotes/guides/collections/index.html&quot;&gt;
+ * Java Collections Framework&lt;/a&gt;.
+ *
+ * @see java.util.Collection
+ * @see LinkedList
+ * @see PriorityQueue
+ * @see java.util.concurrent.LinkedBlockingQueue
+ * @see java.util.concurrent.BlockingQueue
+ * @see java.util.concurrent.ArrayBlockingQueue
+ * @see java.util.concurrent.LinkedBlockingQueue
+ * @see java.util.concurrent.PriorityBlockingQueue
+ * @since 1.5
+ * @author Doug Lea
+ * @param &lt;E&gt; the type of elements held in this collection
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Queue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token keyword">extends</span> <span class="token class-name">Collection</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Inserts the specified element into this queue if it is possible to do so
+     * immediately without violating capacity restrictions, returning
+     * {@code true} upon success and throwing an {@code IllegalStateException}
+     * if no space is currently available.
+     *
+     * @param e the element to add
+     * @return {@code true} (as specified by {@link Collection#add})
+     * @throws IllegalStateException if the element cannot be added at this
+     *         time due to capacity restrictions
+     * @throws ClassCastException if the class of the specified element
+     *         prevents it from being added to this queue
+     * @throws NullPointerException if the specified element is null and
+     *         this queue does not permit null elements
+     * @throws IllegalArgumentException if some property of this element
+     *         prevents it from being added to this queue
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Inserts the specified element into this queue if it is possible to do
+     * so immediately without violating capacity restrictions.
+     * When using a capacity-restricted queue, this method is generally
+     * preferable to {@link #add}, which can fail to insert an element only
+     * by throwing an exception.
+     *
+     * @param e the element to add
+     * @return {@code true} if the element was added to this queue, else
+     *         {@code false}
+     * @throws ClassCastException if the class of the specified element
+     *         prevents it from being added to this queue
+     * @throws NullPointerException if the specified element is null and
+     *         this queue does not permit null elements
+     * @throws IllegalArgumentException if some property of this element
+     *         prevents it from being added to this queue
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">offer</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the head of this queue.  This method differs
+     * from {@link #poll poll} only in that it throws an exception if this
+     * queue is empty.
+     *
+     * @return the head of this queue
+     * @throws NoSuchElementException if this queue is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the head of this queue,
+     * or returns {@code null} if this queue is empty.
+     *
+     * @return the head of this queue, or {@code null} if this queue is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the head of this queue.  This method
+     * differs from {@link #peek peek} only in that it throws an exception
+     * if this queue is empty.
+     *
+     * @return the head of this queue
+     * @throws NoSuchElementException if this queue is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the head of this queue,
+     * or returns {@code null} if this queue is empty.
+     *
+     * @return the head of this queue, or {@code null} if this queue is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="deque"><a href="#deque" class="header-anchor">#</a> DeQue</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">java<span class="token punctuation">.</span>util</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * A linear collection that supports element insertion and removal at
+ * both ends.  The name &lt;i&gt;deque&lt;/i&gt; is short for &quot;double ended queue&quot;
+ * and is usually pronounced &quot;deck&quot;.  Most {@code Deque}
+ * implementations place no fixed limits on the number of elements
+ * they may contain, but this interface supports capacity-restricted
+ * deques as well as those with no fixed size limit.
+ *
+ * &lt;p&gt;This interface defines methods to access the elements at both
+ * ends of the deque.  Methods are provided to insert, remove, and
+ * examine the element.  Each of these methods exists in two forms:
+ * one throws an exception if the operation fails, the other returns a
+ * special value (either {@code null} or {@code false}, depending on
+ * the operation).  The latter form of the insert operation is
+ * designed specifically for use with capacity-restricted
+ * {@code Deque} implementations; in most implementations, insert
+ * operations cannot fail.
+ *
+ * &lt;p&gt;The twelve methods described above are summarized in the
+ * following table:
+ *
+ * &lt;table BORDER CELLPADDING=3 CELLSPACING=1&gt;
+ * &lt;caption&gt;Summary of Deque methods&lt;/caption&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER COLSPAN = 2&gt; &lt;b&gt;First Element (Head)&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER COLSPAN = 2&gt; &lt;b&gt;Last Element (Tail)&lt;/b&gt;&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Throws exception&lt;/em&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Special value&lt;/em&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Throws exception&lt;/em&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt;&lt;em&gt;Special value&lt;/em&gt;&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Insert&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#addFirst addFirst(e)}&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#offerFirst offerFirst(e)}&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#addLast addLast(e)}&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#offerLast offerLast(e)}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Remove&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#removeFirst removeFirst()}&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#pollFirst pollFirst()}&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#removeLast removeLast()}&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#pollLast pollLast()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;&lt;b&gt;Examine&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#getFirst getFirst()}&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#peekFirst peekFirst()}&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#getLast getLast()}&lt;/td&gt;
+ *    &lt;td&gt;{@link Deque#peekLast peekLast()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ * &lt;/table&gt;
+ *
+ * &lt;p&gt;This interface extends the {@link Queue} interface.  When a deque is
+ * used as a queue, FIFO (First-In-First-Out) behavior results.  Elements are
+ * added at the end of the deque and removed from the beginning.  The methods
+ * inherited from the {@code Queue} interface are precisely equivalent to
+ * {@code Deque} methods as indicated in the following table:
+ *
+ * &lt;table BORDER CELLPADDING=3 CELLSPACING=1&gt;
+ * &lt;caption&gt;Comparison of Queue and Deque methods&lt;/caption&gt;
+ *  &lt;tr&gt;
+ *    &lt;td ALIGN=CENTER&gt; &lt;b&gt;{@code Queue} Method&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt; &lt;b&gt;Equivalent {@code Deque} Method&lt;/b&gt;&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;{@link java.util.Queue#add add(e)}&lt;/td&gt;
+ *    &lt;td&gt;{@link #addLast addLast(e)}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;{@link java.util.Queue#offer offer(e)}&lt;/td&gt;
+ *    &lt;td&gt;{@link #offerLast offerLast(e)}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;{@link java.util.Queue#remove remove()}&lt;/td&gt;
+ *    &lt;td&gt;{@link #removeFirst removeFirst()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;{@link java.util.Queue#poll poll()}&lt;/td&gt;
+ *    &lt;td&gt;{@link #pollFirst pollFirst()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;{@link java.util.Queue#element element()}&lt;/td&gt;
+ *    &lt;td&gt;{@link #getFirst getFirst()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;{@link java.util.Queue#peek peek()}&lt;/td&gt;
+ *    &lt;td&gt;{@link #peek peekFirst()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ * &lt;/table&gt;
+ *
+ * &lt;p&gt;Deques can also be used as LIFO (Last-In-First-Out) stacks.  This
+ * interface should be used in preference to the legacy {@link Stack} class.
+ * When a deque is used as a stack, elements are pushed and popped from the
+ * beginning of the deque.  Stack methods are precisely equivalent to
+ * {@code Deque} methods as indicated in the table below:
+ *
+ * &lt;table BORDER CELLPADDING=3 CELLSPACING=1&gt;
+ * &lt;caption&gt;Comparison of Stack and Deque methods&lt;/caption&gt;
+ *  &lt;tr&gt;
+ *    &lt;td ALIGN=CENTER&gt; &lt;b&gt;Stack Method&lt;/b&gt;&lt;/td&gt;
+ *    &lt;td ALIGN=CENTER&gt; &lt;b&gt;Equivalent {@code Deque} Method&lt;/b&gt;&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;{@link #push push(e)}&lt;/td&gt;
+ *    &lt;td&gt;{@link #addFirst addFirst(e)}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;{@link #pop pop()}&lt;/td&gt;
+ *    &lt;td&gt;{@link #removeFirst removeFirst()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ *  &lt;tr&gt;
+ *    &lt;td&gt;{@link #peek peek()}&lt;/td&gt;
+ *    &lt;td&gt;{@link #peekFirst peekFirst()}&lt;/td&gt;
+ *  &lt;/tr&gt;
+ * &lt;/table&gt;
+ *
+ * &lt;p&gt;Note that the {@link #peek peek} method works equally well when
+ * a deque is used as a queue or a stack; in either case, elements are
+ * drawn from the beginning of the deque.
+ *
+ * &lt;p&gt;This interface provides two methods to remove interior
+ * elements, {@link #removeFirstOccurrence removeFirstOccurrence} and
+ * {@link #removeLastOccurrence removeLastOccurrence}.
+ *
+ * &lt;p&gt;Unlike the {@link List} interface, this interface does not
+ * provide support for indexed access to elements.
+ *
+ * &lt;p&gt;While {@code Deque} implementations are not strictly required
+ * to prohibit the insertion of null elements, they are strongly
+ * encouraged to do so.  Users of any {@code Deque} implementations
+ * that do allow null elements are strongly encouraged &lt;i&gt;not&lt;/i&gt; to
+ * take advantage of the ability to insert nulls.  This is so because
+ * {@code null} is used as a special return value by various methods
+ * to indicated that the deque is empty.
+ *
+ * &lt;p&gt;{@code Deque} implementations generally do not define
+ * element-based versions of the {@code equals} and {@code hashCode}
+ * methods, but instead inherit the identity-based versions from class
+ * {@code Object}.
+ *
+ * &lt;p&gt;This interface is a member of the &lt;a
+ * href=&quot;{@docRoot}/../technotes/guides/collections/index.html&quot;&gt; Java Collections
+ * Framework&lt;/a&gt;.
+ *
+ * @author Doug Lea
+ * @author Josh Bloch
+ * @since  1.6
+ * @param &lt;E&gt; the type of elements held in this collection
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token keyword">extends</span> <span class="token class-name">Queue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Inserts the specified element at the front of this deque if it is
+     * possible to do so immediately without violating capacity restrictions,
+     * throwing an {@code IllegalStateException} if no space is currently
+     * available.  When using a capacity-restricted deque, it is generally
+     * preferable to use method {@link #offerFirst}.
+     *
+     * @param e the element to add
+     * @throws IllegalStateException if the element cannot be added at this
+     *         time due to capacity restrictions
+     * @throws ClassCastException if the class of the specified element
+     *         prevents it from being added to this deque
+     * @throws NullPointerException if the specified element is null and this
+     *         deque does not permit null elements
+     * @throws IllegalArgumentException if some property of the specified
+     *         element prevents it from being added to this deque
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Inserts the specified element at the end of this deque if it is
+     * possible to do so immediately without violating capacity restrictions,
+     * throwing an {@code IllegalStateException} if no space is currently
+     * available.  When using a capacity-restricted deque, it is generally
+     * preferable to use method {@link #offerLast}.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #add}.
+     *
+     * @param e the element to add
+     * @throws IllegalStateException if the element cannot be added at this
+     *         time due to capacity restrictions
+     * @throws ClassCastException if the class of the specified element
+     *         prevents it from being added to this deque
+     * @throws NullPointerException if the specified element is null and this
+     *         deque does not permit null elements
+     * @throws IllegalArgumentException if some property of the specified
+     *         element prevents it from being added to this deque
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">addLast</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Inserts the specified element at the front of this deque unless it would
+     * violate capacity restrictions.  When using a capacity-restricted deque,
+     * this method is generally preferable to the {@link #addFirst} method,
+     * which can fail to insert an element only by throwing an exception.
+     *
+     * @param e the element to add
+     * @return {@code true} if the element was added to this deque, else
+     *         {@code false}
+     * @throws ClassCastException if the class of the specified element
+     *         prevents it from being added to this deque
+     * @throws NullPointerException if the specified element is null and this
+     *         deque does not permit null elements
+     * @throws IllegalArgumentException if some property of the specified
+     *         element prevents it from being added to this deque
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">offerFirst</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Inserts the specified element at the end of this deque unless it would
+     * violate capacity restrictions.  When using a capacity-restricted deque,
+     * this method is generally preferable to the {@link #addLast} method,
+     * which can fail to insert an element only by throwing an exception.
+     *
+     * @param e the element to add
+     * @return {@code true} if the element was added to this deque, else
+     *         {@code false}
+     * @throws ClassCastException if the class of the specified element
+     *         prevents it from being added to this deque
+     * @throws NullPointerException if the specified element is null and this
+     *         deque does not permit null elements
+     * @throws IllegalArgumentException if some property of the specified
+     *         element prevents it from being added to this deque
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">offerLast</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the first element of this deque.  This method
+     * differs from {@link #pollFirst pollFirst} only in that it throws an
+     * exception if this deque is empty.
+     *
+     * @return the head of this deque
+     * @throws NoSuchElementException if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">removeFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the last element of this deque.  This method
+     * differs from {@link #pollLast pollLast} only in that it throws an
+     * exception if this deque is empty.
+     *
+     * @return the tail of this deque
+     * @throws NoSuchElementException if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">removeLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the first element of this deque,
+     * or returns {@code null} if this deque is empty.
+     *
+     * @return the head of this deque, or {@code null} if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">pollFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the last element of this deque,
+     * or returns {@code null} if this deque is empty.
+     *
+     * @return the tail of this deque, or {@code null} if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">pollLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the first element of this deque.
+     *
+     * This method differs from {@link #peekFirst peekFirst} only in that it
+     * throws an exception if this deque is empty.
+     *
+     * @return the head of this deque
+     * @throws NoSuchElementException if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the last element of this deque.
+     * This method differs from {@link #peekLast peekLast} only in that it
+     * throws an exception if this deque is empty.
+     *
+     * @return the tail of this deque
+     * @throws NoSuchElementException if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">getLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the first element of this deque,
+     * or returns {@code null} if this deque is empty.
+     *
+     * @return the head of this deque, or {@code null} if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">peekFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the last element of this deque,
+     * or returns {@code null} if this deque is empty.
+     *
+     * @return the tail of this deque, or {@code null} if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">peekLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Removes the first occurrence of the specified element from this deque.
+     * If the deque does not contain the element, it is unchanged.
+     * More formally, removes the first element {@code e} such that
+     * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;e==null&amp;nbsp;:&amp;nbsp;o.equals(e))&lt;/tt&gt;
+     * (if such an element exists).
+     * Returns {@code true} if this deque contained the specified element
+     * (or equivalently, if this deque changed as a result of the call).
+     *
+     * @param o element to be removed from this deque, if present
+     * @return {@code true} if an element was removed as a result of this call
+     * @throws ClassCastException if the class of the specified element
+     *         is incompatible with this deque
+     * (&lt;a href=&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     * @throws NullPointerException if the specified element is null and this
+     *         deque does not permit null elements
+     * (&lt;a href=&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">removeFirstOccurrence</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Removes the last occurrence of the specified element from this deque.
+     * If the deque does not contain the element, it is unchanged.
+     * More formally, removes the last element {@code e} such that
+     * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;e==null&amp;nbsp;:&amp;nbsp;o.equals(e))&lt;/tt&gt;
+     * (if such an element exists).
+     * Returns {@code true} if this deque contained the specified element
+     * (or equivalently, if this deque changed as a result of the call).
+     *
+     * @param o element to be removed from this deque, if present
+     * @return {@code true} if an element was removed as a result of this call
+     * @throws ClassCastException if the class of the specified element
+     *         is incompatible with this deque
+     * (&lt;a href=&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     * @throws NullPointerException if the specified element is null and this
+     *         deque does not permit null elements
+     * (&lt;a href=&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">removeLastOccurrence</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// *** Queue methods ***</span>
+
+    <span class="token comment">/**
+     * Inserts the specified element into the queue represented by this deque
+     * (in other words, at the tail of this deque) if it is possible to do so
+     * immediately without violating capacity restrictions, returning
+     * {@code true} upon success and throwing an
+     * {@code IllegalStateException} if no space is currently available.
+     * When using a capacity-restricted deque, it is generally preferable to
+     * use {@link #offer(Object) offer}.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #addLast}.
+     *
+     * @param e the element to add
+     * @return {@code true} (as specified by {@link Collection#add})
+     * @throws IllegalStateException if the element cannot be added at this
+     *         time due to capacity restrictions
+     * @throws ClassCastException if the class of the specified element
+     *         prevents it from being added to this deque
+     * @throws NullPointerException if the specified element is null and this
+     *         deque does not permit null elements
+     * @throws IllegalArgumentException if some property of the specified
+     *         element prevents it from being added to this deque
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Inserts the specified element into the queue represented by this deque
+     * (in other words, at the tail of this deque) if it is possible to do so
+     * immediately without violating capacity restrictions, returning
+     * {@code true} upon success and {@code false} if no space is currently
+     * available.  When using a capacity-restricted deque, this method is
+     * generally preferable to the {@link #add} method, which can fail to
+     * insert an element only by throwing an exception.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #offerLast}.
+     *
+     * @param e the element to add
+     * @return {@code true} if the element was added to this deque, else
+     *         {@code false}
+     * @throws ClassCastException if the class of the specified element
+     *         prevents it from being added to this deque
+     * @throws NullPointerException if the specified element is null and this
+     *         deque does not permit null elements
+     * @throws IllegalArgumentException if some property of the specified
+     *         element prevents it from being added to this deque
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">offer</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the head of the queue represented by this deque
+     * (in other words, the first element of this deque).
+     * This method differs from {@link #poll poll} only in that it throws an
+     * exception if this deque is empty.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #removeFirst()}.
+     *
+     * @return the head of the queue represented by this deque
+     * @throws NoSuchElementException if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves and removes the head of the queue represented by this deque
+     * (in other words, the first element of this deque), or returns
+     * {@code null} if this deque is empty.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #pollFirst()}.
+     *
+     * @return the first element of this deque, or {@code null} if
+     *         this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the head of the queue represented by
+     * this deque (in other words, the first element of this deque).
+     * This method differs from {@link #peek peek} only in that it throws an
+     * exception if this deque is empty.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #getFirst()}.
+     *
+     * @return the head of the queue represented by this deque
+     * @throws NoSuchElementException if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">element</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Retrieves, but does not remove, the head of the queue represented by
+     * this deque (in other words, the first element of this deque), or
+     * returns {@code null} if this deque is empty.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #peekFirst()}.
+     *
+     * @return the head of the queue represented by this deque, or
+     *         {@code null} if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token comment">// *** Stack methods ***</span>
+
+    <span class="token comment">/**
+     * Pushes an element onto the stack represented by this deque (in other
+     * words, at the head of this deque) if it is possible to do so
+     * immediately without violating capacity restrictions, throwing an
+     * {@code IllegalStateException} if no space is currently available.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #addFirst}.
+     *
+     * @param e the element to push
+     * @throws IllegalStateException if the element cannot be added at this
+     *         time due to capacity restrictions
+     * @throws ClassCastException if the class of the specified element
+     *         prevents it from being added to this deque
+     * @throws NullPointerException if the specified element is null and this
+     *         deque does not permit null elements
+     * @throws IllegalArgumentException if some property of the specified
+     *         element prevents it from being added to this deque
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Pops an element from the stack represented by this deque.  In other
+     * words, removes and returns the first element of this deque.
+     *
+     * &lt;p&gt;This method is equivalent to {@link #removeFirst()}.
+     *
+     * @return the element at the front of this deque (which is the top
+     *         of the stack represented by this deque)
+     * @throws NoSuchElementException if this deque is empty
+     */</span>
+    <span class="token class-name">E</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token comment">// *** Collection methods ***</span>
+
+    <span class="token comment">/**
+     * Removes the first occurrence of the specified element from this deque.
+     * If the deque does not contain the element, it is unchanged.
+     * More formally, removes the first element {@code e} such that
+     * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;e==null&amp;nbsp;:&amp;nbsp;o.equals(e))&lt;/tt&gt;
+     * (if such an element exists).
+     * Returns {@code true} if this deque contained the specified element
+     * (or equivalently, if this deque changed as a result of the call).
+     *
+     * &lt;p&gt;This method is equivalent to {@link #removeFirstOccurrence(Object)}.
+     *
+     * @param o element to be removed from this deque, if present
+     * @return {@code true} if an element was removed as a result of this call
+     * @throws ClassCastException if the class of the specified element
+     *         is incompatible with this deque
+     * (&lt;a href=&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     * @throws NullPointerException if the specified element is null and this
+     *         deque does not permit null elements
+     * (&lt;a href=&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Returns {@code true} if this deque contains the specified element.
+     * More formally, returns {@code true} if and only if this deque contains
+     * at least one element {@code e} such that
+     * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;e==null&amp;nbsp;:&amp;nbsp;o.equals(e))&lt;/tt&gt;.
+     *
+     * @param o element whose presence in this deque is to be tested
+     * @return {@code true} if this deque contains the specified element
+     * @throws ClassCastException if the type of the specified element
+     *         is incompatible with this deque
+     * (&lt;a href=&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     * @throws NullPointerException if the specified element is null and this
+     *         deque does not permit null elements
+     * (&lt;a href=&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">contains</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Returns the number of elements in this deque.
+     *
+     * @return the number of elements in this deque
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Returns an iterator over the elements in this deque in proper sequence.
+     * The elements will be returned in order from first (head) to last (tail).
+     *
+     * @return an iterator over the elements in this deque in proper sequence
+     */</span>
+    <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Returns an iterator over the elements in this deque in reverse
+     * sequential order.  The elements will be returned in order from
+     * last (tail) to first (head).
+     *
+     * @return an iterator over the elements in this deque in reverse
+     * sequence
+     */</span>
+    <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token function">descendingIterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="阻塞队列"><a href="#阻塞队列" class="header-anchor">#</a> 阻塞队列</h2></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----> <!----></main> <!----></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="Sakura" data-v-017cf06a><canvas id="canvas_sakura" style="z-index:20;" data-v-017cf06a></canvas></div><APlayer audio="" fixed="true" mini="true" autoplay="autoplay" theme="#b7daff" loop="loop" order="list" preload="auto" volume="0.7" mutex="true" lrc-type="3" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer></div></div>
+    <script src="/blog/assets/js/app.19518fa2.js" defer></script><script src="/blog/assets/js/5.4859d6c2.js" defer></script><script src="/blog/assets/js/1.5aece763.js" defer></script><script src="/blog/assets/js/45.fead227f.js" defer></script>
+  </body>
+</html>

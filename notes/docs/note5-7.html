@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>线程的基本概念 | eaaomk</title>
+    <meta name="generator" content="VuePress 1.9.4">
+    <link rel="icon" href="/blog/logo.png">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.5a668c74.css" as="style"><link rel="preload" href="/blog/assets/js/app.19518fa2.js" as="script"><link rel="preload" href="/blog/assets/js/5.4859d6c2.js" as="script"><link rel="preload" href="/blog/assets/js/1.5aece763.js" as="script"><link rel="preload" href="/blog/assets/js/26.72d2aecb.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.d5bce0ea.js"><link rel="prefetch" href="/blog/assets/js/11.76facc45.js"><link rel="prefetch" href="/blog/assets/js/12.19550e35.js"><link rel="prefetch" href="/blog/assets/js/13.e756f87b.js"><link rel="prefetch" href="/blog/assets/js/14.414d59aa.js"><link rel="prefetch" href="/blog/assets/js/15.6c9f042b.js"><link rel="prefetch" href="/blog/assets/js/16.f5af03e6.js"><link rel="prefetch" href="/blog/assets/js/17.d197dcbc.js"><link rel="prefetch" href="/blog/assets/js/18.4b7b558f.js"><link rel="prefetch" href="/blog/assets/js/19.71d9adeb.js"><link rel="prefetch" href="/blog/assets/js/20.921a7be9.js"><link rel="prefetch" href="/blog/assets/js/21.37c53cfe.js"><link rel="prefetch" href="/blog/assets/js/22.d4568056.js"><link rel="prefetch" href="/blog/assets/js/23.09b308cf.js"><link rel="prefetch" href="/blog/assets/js/24.4b342a99.js"><link rel="prefetch" href="/blog/assets/js/25.b2e72b20.js"><link rel="prefetch" href="/blog/assets/js/27.e54d6e48.js"><link rel="prefetch" href="/blog/assets/js/28.ff590f32.js"><link rel="prefetch" href="/blog/assets/js/29.c5bba8d3.js"><link rel="prefetch" href="/blog/assets/js/3.1d8dc234.js"><link rel="prefetch" href="/blog/assets/js/30.06622705.js"><link rel="prefetch" href="/blog/assets/js/31.b562121e.js"><link rel="prefetch" href="/blog/assets/js/32.cdc8fcd2.js"><link rel="prefetch" href="/blog/assets/js/33.0471b68b.js"><link rel="prefetch" href="/blog/assets/js/34.9ce5879e.js"><link rel="prefetch" href="/blog/assets/js/35.6ee0a075.js"><link rel="prefetch" href="/blog/assets/js/36.7ef08d9c.js"><link rel="prefetch" href="/blog/assets/js/37.d15d35c1.js"><link rel="prefetch" href="/blog/assets/js/38.ab712803.js"><link rel="prefetch" href="/blog/assets/js/39.23376734.js"><link rel="prefetch" href="/blog/assets/js/4.3af5333b.js"><link rel="prefetch" href="/blog/assets/js/40.6da53d10.js"><link rel="prefetch" href="/blog/assets/js/41.de685141.js"><link rel="prefetch" href="/blog/assets/js/42.504d2067.js"><link rel="prefetch" href="/blog/assets/js/43.678c8e5c.js"><link rel="prefetch" href="/blog/assets/js/44.b211d311.js"><link rel="prefetch" href="/blog/assets/js/45.fead227f.js"><link rel="prefetch" href="/blog/assets/js/46.aefbe6dd.js"><link rel="prefetch" href="/blog/assets/js/47.a91e528d.js"><link rel="prefetch" href="/blog/assets/js/48.aa058936.js"><link rel="prefetch" href="/blog/assets/js/49.eb882fee.js"><link rel="prefetch" href="/blog/assets/js/6.e1a557a2.js"><link rel="prefetch" href="/blog/assets/js/7.f67b8398.js"><link rel="prefetch" href="/blog/assets/js/8.51a50bb1.js"><link rel="prefetch" href="/blog/assets/js/9.4dccae3e.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.5a668c74.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-007af369><div data-v-007af369><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-007af369 data-v-007af369><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-221076ea data-v-007af369 data-v-007af369><h3 class="title" style="display:none;" data-v-221076ea data-v-221076ea>
+      eaaomk
+    </h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-221076ea data-v-221076ea><input type="password" value="" data-v-221076ea> <span data-v-221076ea>Konck! Knock!</span> <button data-v-221076ea>OK</button></label></div> <div class="hide" data-v-007af369><div data-v-007af369><div id="smart" class="wrapper-page" style="background-image:url(/blog/back01.jpg);background-position-x:center;background-position-y:center;background-size:cover;background-repeat-x:no-repeat;background-repeat-y:no-repeat;" data-v-007af369><header class="navbar" data-v-007af369><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/logo.png" alt="eaaomk" class="logo"> <span class="site-name">eaaomk</span></a> <div class="links"><div id="dayNightSwitch" class="generalWrapper" data-v-52d14190><a class="click" data-v-52d14190><div class="onOff daySwitch" data-v-52d14190><div class="star star1" data-v-52d14190></div> <div class="star star2" data-v-52d14190></div> <div class="star star3" data-v-52d14190></div> <div class="star star4" data-v-52d14190></div> <div class="star star5" data-v-52d14190></div> <div class="star sky" data-v-52d14190></div> <div class="sunMoon" data-v-52d14190><div class="crater crater1" data-v-52d14190></div> <div class="crater crater2" data-v-52d14190></div> <div class="crater crater3" data-v-52d14190></div> <div class="cloud part1" data-v-52d14190></div> <div class="cloud part2" data-v-52d14190></div></div></div></a></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/常用命令/" class="nav-link"><i class="iconfont undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/情景再现/" class="nav-link"><i class="iconfont undefined"></i>
+  情景再现
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/AMS/" class="nav-link"><i class="iconfont undefined"></i>
+  AMS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/Zygote/" class="nav-link"><i class="iconfont undefined"></i>
+  Zygote
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/审计/" class="nav-link"><i class="iconfont undefined"></i>
+  审计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/财务会计/" class="nav-link"><i class="iconfont undefined"></i>
+  财务会计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/进程与线程/" class="nav-link"><i class="iconfont undefined"></i>
+  进程与线程
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/消息传递/" class="nav-link"><i class="iconfont undefined"></i>
+  消息传递
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/处理机调度与死锁/" class="nav-link"><i class="iconfont undefined"></i>
+  处理机调度与死锁
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计思想与代码质量优化/" class="nav-link"><i class="iconfont undefined"></i>
+  设计思想与代码质量优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计模式/" class="nav-link"><i class="iconfont undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/数据结构/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/算法/" class="nav-link"><i class="iconfont undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/VSCODE/" class="nav-link"><i class="iconfont undefined"></i>
+  VSCODE
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-007af369></div> <aside class="sidebar" data-v-007af369><div class="personal-info-wrapper" data-v-3eba7259 data-v-007af369><img src="/blog/logo.png" alt="author-avatar" class="personal-img" data-v-3eba7259> <h3 class="name" data-v-3eba7259>
+    eaaomk
+  </h3> <div class="num" data-v-3eba7259><div data-v-3eba7259><h3 data-v-3eba7259>37</h3> <h6 data-v-3eba7259>文章</h6></div> <div data-v-3eba7259><h3 data-v-3eba7259>10</h3> <h6 data-v-3eba7259>标签</h6></div></div> <hr data-v-3eba7259></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/常用命令/" class="nav-link"><i class="iconfont undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/情景再现/" class="nav-link"><i class="iconfont undefined"></i>
+  情景再现
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/AMS/" class="nav-link"><i class="iconfont undefined"></i>
+  AMS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/Zygote/" class="nav-link"><i class="iconfont undefined"></i>
+  Zygote
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/审计/" class="nav-link"><i class="iconfont undefined"></i>
+  审计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/财务会计/" class="nav-link"><i class="iconfont undefined"></i>
+  财务会计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/进程与线程/" class="nav-link"><i class="iconfont undefined"></i>
+  进程与线程
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/消息传递/" class="nav-link"><i class="iconfont undefined"></i>
+  消息传递
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/处理机调度与死锁/" class="nav-link"><i class="iconfont undefined"></i>
+  处理机调度与死锁
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计思想与代码质量优化/" class="nav-link"><i class="iconfont undefined"></i>
+  设计思想与代码质量优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计模式/" class="nav-link"><i class="iconfont undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/数据结构/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/算法/" class="nav-link"><i class="iconfont undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/VSCODE/" class="nav-link"><i class="iconfont undefined"></i>
+  VSCODE
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-221076ea data-v-007af369><h3 class="title" style="display:none;" data-v-221076ea data-v-221076ea>
+      线程的基本概念
+    </h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-221076ea data-v-221076ea><input type="password" value="" data-v-221076ea> <span data-v-221076ea>Konck! Knock!</span> <button data-v-221076ea>OK</button></label></div></div> <div data-v-007af369><main class="page"><div class="page-title" style="display:none;"><h1 class="title">线程的基本概念</h1> <div class="page-info" data-v-709b7add><i class="iconfont reco-account" data-v-709b7add><span data-v-709b7add>eaaomk</span></i> <i class="iconfont reco-date" data-v-709b7add><span data-v-709b7add>2022-01-07 23:00:00</span></i> <!----> <i class="iconfont reco-tag tags" data-v-709b7add><span class="tag-item" data-v-709b7add>OS</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="线程的基本概念"><a href="#线程的基本概念" class="header-anchor">#</a> 线程的基本概念</h2> <p>在20世纪60年代中期,人们在设计多道程序OS时,引入了进程的概念,从而解决了在单处理机环境下的程序并发执行问题。此后在长达20年的时间里,在多道程序OS中一直是以进程作为能拥有资源和独立调度(运行)的基本单位的。直到80年代中期,人们又提出了比进程更小的基本单位-线程的概念,试图用它来提高程序并发执行的程度,以进一步改善系统的服务质量。特别是在进入20世纪90年代后,多处理机系统得到迅速发展,由于线程能更好地提高程序的并行执行程度,因而近几年推出的多处理机OS无一例外地都引入了线程,用以改善OS的性能。</p> <h3 id="线程的引入"><a href="#线程的引入" class="header-anchor">#</a> 线程的引入</h3> <p>如果说,在OS中引入进程的目的是为了使多个程序能并发执行,以提高资源利用率和系统吞吐量,那么,在操作系统中再引入线程,则是为了减少程序在并发执行时所付出的时空开销,使OS具有更好的并发性。</p> <h4 id="进程的两个基本属性"><a href="#进程的两个基本属性" class="header-anchor">#</a> 进程的两个基本属性</h4> <p>首先让我们来回顾进程的两个基本属性:</p> <ol><li>进程是一个可拥有资源的独立单位,一个进程要能独立运行,它必须拥有一定的资源,包括用于存放程序正文,数据的磁盘和内存地址空间,以及它在运行时所需要的I/O设备、已打开的文件、信号量等;</li> <li>进程同时又是一个可独立调度和分派的基本单位,一个进程要能独立运行,它还必须是一个可独立调度和分派的基本单位。每个进程在系统中有唯一的PCB,系统可根据其PCB感知进程的存在,也可以根据其PCB中的信息,对进程进行调度,还可将断点信息保存在其PCB中。反之,再利用进程PCB中的信息来恢复进程运行的现场。正是由于进程有这两个基本属性,才使进程成为一个能独立运行的基本单位,从而也就构成了进程并发执行的基础。</li></ol> <h4 id="程序并发执行所需付出的时空开销"><a href="#程序并发执行所需付出的时空开销" class="header-anchor">#</a> 程序并发执行所需付出的时空开销</h4> <p>为使程序能并发执行,系统必须进行以下的一系列操作:
+</p><p>
+(1)创建进程,系统在创建一个进程时,必须为它分配其所必需的、除处理机以外的所有资源,如内存空间、VO设备,以及建立相应的PCB
+</p> <p>
+(2)撤消进程,系统在撤消进程时,又必须先对其所占有的资源执行回收操作,然后再撤消PCB;
+</p> <p>
+(3)进程切换,对进程进行上下文切换时,需要保留当前进程的CPU环境,设置新选中进程的CPU环境,因而须花费不少的处理机时间。
+</p>
+据此可知,由于进程是一个资源的拥有者,因而在创建、撤消和切换中,系统必须为之付出较大的时空开销。这就限制了系统中所设置进程的数目,而且进程切换也不宜过于频繁,从而限制了并发程度的进一步提高。<p></p> <h4 id="线程-作为调度和分派的基本单位"><a href="#线程-作为调度和分派的基本单位" class="header-anchor">#</a> 线程-作为调度和分派的基本单位</h4> <p>如何能使多个程序更好地并发执行,同时又尽量减少系统的开销,已成为近年来设计操作系统时所追求的重要目标。有不少研究操作系统的学者们想到,要设法将进程的上述两个属性分开,由OS分开处理,亦即并不把作为调度和分派的基本单位也同时作为拥有资源的单位,以做到“轻装上阵”;而对于拥有资源的基本单位,又不对之施以频繁的切换。正是在这种思想的指导下,形成了线程的概念随着VLSI技术和计算机体系结构的发展,出现了对称多处理机(SMP)计算机系统。它为提高计算机的运行速度和系统吞吐量提供了良好的硬件基础。但要使多个CPU很好地协调运行,充分发挥它们的并行处理能力,以提高系统性能,还必须配置性能良好的多处理机OS但利用传统的进程概念和设计方法已难以设计出适合于SMP结构计算机系统的OS。其最根本的原因是进程“太重”,致使为实现多处理机环境下的进程的创建、调度、分派都需花费较大的时间和空间开销。如果在OS中引入线程,以线程作为调度和分派的基本单位,则可以有效地改善多处理机系统的性能。因此，一些主要的OS(UNIX、 Windows)厂家又进一步对线程技术做了开发,使之适用于SMP的计算机系统。</p> <h3 id="线程与进程的比较"><a href="#线程与进程的比较" class="header-anchor">#</a> 线程与进程的比较</h3> <p>线程与进程的比较由于线程具有许多传统进程所具有的特征,所以又称之为轻型进程( Light-WeightProcess)减或进程元,相应地,把传统进程称为重型进程( Heavy-Weight Process)。它相当于只有一个线程的任务。下面我们从调度性、并发性、系统开销和拥有资源等方面对线程和进程进行比较。</p> <h4 id="调度的基本单位"><a href="#调度的基本单位" class="header-anchor">#</a> 调度的基本单位</h4> <p>在传统的OS中,进程是作为独立调度和分派的基本单位,因而进程是能独立运行的基本单位。在每次被调度时,都需要进行上下文切换,开销较大。而在引入线程的OS中,已把线程作为调度和分派的基本单位,因而线程是能独立运行的基本单位。当线程切换时仅需保存和设置少量寄存器内容,切换代价远低于进程。在同一进程中,线程的切换不会引起进程的切换,但从一个进程中的线程切换到另一个进程中的线程时,必然就会引起进程的切换。</p> <h4 id="并发性"><a href="#并发性" class="header-anchor">#</a> 并发性</h4> <p>在引入线程的OS中,不仅进程之间可以并发执行,而且在一个进程中的多个线程之间亦可并发执行,甚至还允许在一个进程中的所有线程都能并发执行。同样,不同进程中的线程也能并发执行。这使得OS具有更好的并发性,从而能更加有效地提高系统资源的利用率和系统的吞吐量。例如,在文字处理器中可以设置三个线程:第一个线程用于显示文字和图形,第二个线程从键盘读入数据,第三个线程在后台进行拼写和语法检查。又如,在网页浏览器中,可以设置一个线程来显示图像或文本,再设置一个线程用于从网络中接收数据。</p> <p>此外,有的应用程序需要执行多个相似的任务。例如,一个网络服务器经常会接到许多客户的请求,如果仍采用传统的单线程的进程来执行该任务,则每次只能为一个客户服务。但如果在一个进程中可以设置多个线程,将其中的一个专用于监听客户的请求,则每当有一个客户请求时,便立即创建一个线程来处理该客户的请求。</p> <h4 id="拥有资源"><a href="#拥有资源" class="header-anchor">#</a> 拥有资源</h4> <p>可以拥有资源,并作为系统中拥有资源的一个基本单位。然而,线程本身并不拥有系统资源,而是仅有一点必不可少的、能保证独立运行的资源。比如,在每个线程中都应具有一个用于控制线程运行的线程控制块TCB、用于指示被执行指令序列的程序计数器保留局部变量、少数状态参数和返回地址等的一组寄存器和堆栈线程除了拥有自己的少量资源外,还允许多个线程共享该进程所拥有的资源,这首先表现在:属于同一进程的所有线程都具有相同的地址空间,这意味着,线程可以访问该地址空间中的每一个虚地址;此外,还可以访问进程所拥有的资源,如已打开的文件,定时器、信号量机构等的内存空间和它所申请到的I/O设备等.</p> <h4 id="独立性"><a href="#独立性" class="header-anchor">#</a> 独立性</h4> <p>在同一进程中的不同线程之间的独立性要比不同进程之间的独立性低得多。这是因为为防止进程之间彼此干扰和破坏,每个进程都拥有一个独立的地址空间和其它资源,除了共享全局变量外,不允许其它进程的访问。但是同一进程中的不同线程往往是为了提高并发性以及进行相互之间的合作面创建的,它们共享进程的内存地址空间和资源,如每个线程都可以访问它们所属进程地址空间中的所有地址,如一个线程的堆栈可以被其它线程读写,甚至完全清除。由一个线程打开的文件可以供其它线程读,写。</p> <h4 id="系统开销"><a href="#系统开销" class="header-anchor">#</a> 系统开销</h4> <p>在创建或撤消进程时,系统都要为之分配和回收进程控制块、分配或回收其它资源,如内存空间和I/O设备等。OS为此所付出的开销,明显大于线程创建或撤消时所付出的开销。类似地,在进程切换时,涉及到进程上下文的切换,而线程的切换代价也远低于进程的。例如,在 Solaris 2 OS 中,线程的创建要比进程的创建快30倍,而线程上下文切换要比进程上下文的切换快5倍。此外,由于一个进程中的多个线程具有相同的地址空间,线程之间的同步和通信也比进程的简单。因此,在一些OS中,线程的切换、同步和通信都无需操作系统内核的干预。</p> <h4 id="支持多处理机系统"><a href="#支持多处理机系统" class="header-anchor">#</a> 支持多处理机系统</h4> <p>在多处理机系统中,对于传统的进程,即单线程进程,不管有多少处理机,该进程只能运行在一个处理机上,但对于多线程进程,就可以将一个进程中的多个线程分配到多个处理机上,使它们并行执行,这无疑将加速进程的完成,因此,现代多处理机OS都无例外地引入了多线程。</p> <h3 id="线程的状态和线程控制块"><a href="#线程的状态和线程控制块" class="header-anchor">#</a> 线程的状态和线程控制块</h3> <h4 id="线程运行的三个状态"><a href="#线程运行的三个状态" class="header-anchor">#</a> 线程运行的三个状态</h4> <p><img src="/blog/assets/img/2-5.648628ea.png" alt="2-5"></p><p>
+与传统的进程一样,在各线程之间也存在着共享资源和相互合作的制约关系,致使线程在运行时也具有间断性。相应地,线程在运行时也具有下述三种基本状态：
+</p><p></p> <ol><li>执行状态,表示线程已获得处理机而正在运行</li> <li>就绪状态,指线程已具备了各种执行条件,只须再获得CPU便可立即执行</li> <li>阻塞状态,指线程在执行中因某事件受阻而处于暂停状态,例如,当一个线程执行从键盘读入数据的系统调用时,该线程就被阻塞线程状态之间的转换和进程状态之间的转换是一样的,如图2-5所示。</li></ol> <h4 id="线程控制块-tcb"><a href="#线程控制块-tcb" class="header-anchor">#</a> 线程控制块 TCB</h4> <p>每个进程有一个进程控制块一样,系统也为每个线程配置了一个线程控制块TCB将所有用于控制和管理线程的信息记录在线程控制块中。线程控制块通常有这样几项:</p> <ol><li>线程标识符,为每个线程赋予一个唯一的线程标识符.</li> <li>一组寄存器,包括程序计数器PC状态寄存器和通用寄存器的内容;</li> <li>线程运行状态,用于描述线程正处于何种运行状态;</li> <li>优先级,描述线程执行的优先程度;</li> <li>线程专有存储区,用于线程切换时存放现场保护信息,和与该线程相关的统计信息等;</li> <li>信号屏蔽,即对某些信号加以屏蔽:</li> <li>堆栈指针,在线程运行时,经常会进行过程调用,而过程的调用通常会出现多重嵌套的情况这样,就必须将每次过程调用中所使用的局部变量以及返回地址保存起来。为此,应为每个线程设置一个堆栈,用它来保存局部变量和返回地址。相应地,在TCB中,也须设置两个指向堆栈的指针:指向用户自己堆栈的指针和指向核心栈的指针。前者是指当线程运行在用户态时,使用用户自己的用户栈来保存局部变量和返回地址,后者是指当线程运行在核心态时使用系统的核心栈。</li></ol> <h4 id="多线程os中的进程属性"><a href="#多线程os中的进程属性" class="header-anchor">#</a> 多线程OS中的进程属性</h4> <p>通常在多线程OS中的进程都包含了多个线程,并为它们提供资源。OS支持在一个进程中的多个线程能并发执行,但此时的进程就不再作为一个执行的实体。多线程OS中的进程有以下属性:</p> <ol><li>进程是一个可拥有资源的基本单位。在多线程OS中,进程仍是作为系统资源分配的基本单位,任一进程所拥有的资源都包括:用户的地址空间、实现进程(线程)间同步和通信的机制、已打开的文件和已申请到的MO设备,以及一张由核心进程维护的地址映射表,该表用于实现用户程序的逻辑地址到其内存物理地址的映射。</li> <li>多个线程可并发执行。通常一个进程都含有若干个相对独立的线程,其数目可多可少,但至少要有一个线程。由进程为这些(个)线程提供资源及运行环境,使它们能并发执行。在OS中的所有线程都只能属于某一个特定进程。实际上,现在把传统进程的执行方法称为单线程方法。如传统的UNIX系统能支持多用户进程,但只支持单线程方法之,将每个进程支持多个线程执行的方法称为多线程方法。如Java的运行环境是单进程多线程的, Windows 2000、 Solaris、Mach等采用的则是多进程多线程的方法。</li> <li>进程已不是可执行的实体。在多线程OS中,是把线程作为独立运行(或称调度)的本单位。此时的进程已不再是一个基本的可执行实体。虽然如此,进程仍具有与执行相关的状态。例如,所谓进程处于“执行”状态,实际上是指该进程中的某线程正在执行。此外,对进程所施加的与进程状态有关的操作也对其线程起作用。例如,在把某个进程挂时,该进程中的所有线程也都将被挂起;又如,在把某进程激活时,属于该进程的所有线程也都将被激活.</li></ol></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----> <!----></main> <!----></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="Sakura" data-v-017cf06a><canvas id="canvas_sakura" style="z-index:20;" data-v-017cf06a></canvas></div><APlayer audio="" fixed="true" mini="true" autoplay="autoplay" theme="#b7daff" loop="loop" order="list" preload="auto" volume="0.7" mutex="true" lrc-type="3" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer></div></div>
+    <script src="/blog/assets/js/app.19518fa2.js" defer></script><script src="/blog/assets/js/5.4859d6c2.js" defer></script><script src="/blog/assets/js/1.5aece763.js" defer></script><script src="/blog/assets/js/26.72d2aecb.js" defer></script>
+  </body>
+</html>

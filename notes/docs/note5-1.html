@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前趋图与程序的执行 | eaaomk</title>
+    <meta name="generator" content="VuePress 1.9.4">
+    <link rel="icon" href="/blog/logo.png">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.5a668c74.css" as="style"><link rel="preload" href="/blog/assets/js/app.19518fa2.js" as="script"><link rel="preload" href="/blog/assets/js/5.4859d6c2.js" as="script"><link rel="preload" href="/blog/assets/js/1.5aece763.js" as="script"><link rel="preload" href="/blog/assets/js/15.6c9f042b.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.d5bce0ea.js"><link rel="prefetch" href="/blog/assets/js/11.76facc45.js"><link rel="prefetch" href="/blog/assets/js/12.19550e35.js"><link rel="prefetch" href="/blog/assets/js/13.e756f87b.js"><link rel="prefetch" href="/blog/assets/js/14.414d59aa.js"><link rel="prefetch" href="/blog/assets/js/16.f5af03e6.js"><link rel="prefetch" href="/blog/assets/js/17.d197dcbc.js"><link rel="prefetch" href="/blog/assets/js/18.4b7b558f.js"><link rel="prefetch" href="/blog/assets/js/19.71d9adeb.js"><link rel="prefetch" href="/blog/assets/js/20.921a7be9.js"><link rel="prefetch" href="/blog/assets/js/21.37c53cfe.js"><link rel="prefetch" href="/blog/assets/js/22.d4568056.js"><link rel="prefetch" href="/blog/assets/js/23.09b308cf.js"><link rel="prefetch" href="/blog/assets/js/24.4b342a99.js"><link rel="prefetch" href="/blog/assets/js/25.b2e72b20.js"><link rel="prefetch" href="/blog/assets/js/26.72d2aecb.js"><link rel="prefetch" href="/blog/assets/js/27.e54d6e48.js"><link rel="prefetch" href="/blog/assets/js/28.ff590f32.js"><link rel="prefetch" href="/blog/assets/js/29.c5bba8d3.js"><link rel="prefetch" href="/blog/assets/js/3.1d8dc234.js"><link rel="prefetch" href="/blog/assets/js/30.06622705.js"><link rel="prefetch" href="/blog/assets/js/31.b562121e.js"><link rel="prefetch" href="/blog/assets/js/32.cdc8fcd2.js"><link rel="prefetch" href="/blog/assets/js/33.0471b68b.js"><link rel="prefetch" href="/blog/assets/js/34.9ce5879e.js"><link rel="prefetch" href="/blog/assets/js/35.6ee0a075.js"><link rel="prefetch" href="/blog/assets/js/36.7ef08d9c.js"><link rel="prefetch" href="/blog/assets/js/37.d15d35c1.js"><link rel="prefetch" href="/blog/assets/js/38.ab712803.js"><link rel="prefetch" href="/blog/assets/js/39.23376734.js"><link rel="prefetch" href="/blog/assets/js/4.3af5333b.js"><link rel="prefetch" href="/blog/assets/js/40.6da53d10.js"><link rel="prefetch" href="/blog/assets/js/41.de685141.js"><link rel="prefetch" href="/blog/assets/js/42.504d2067.js"><link rel="prefetch" href="/blog/assets/js/43.678c8e5c.js"><link rel="prefetch" href="/blog/assets/js/44.b211d311.js"><link rel="prefetch" href="/blog/assets/js/45.fead227f.js"><link rel="prefetch" href="/blog/assets/js/46.aefbe6dd.js"><link rel="prefetch" href="/blog/assets/js/47.a91e528d.js"><link rel="prefetch" href="/blog/assets/js/48.aa058936.js"><link rel="prefetch" href="/blog/assets/js/49.eb882fee.js"><link rel="prefetch" href="/blog/assets/js/6.e1a557a2.js"><link rel="prefetch" href="/blog/assets/js/7.f67b8398.js"><link rel="prefetch" href="/blog/assets/js/8.51a50bb1.js"><link rel="prefetch" href="/blog/assets/js/9.4dccae3e.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.5a668c74.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-007af369><div data-v-007af369><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-007af369 data-v-007af369><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-221076ea data-v-007af369 data-v-007af369><h3 class="title" style="display:none;" data-v-221076ea data-v-221076ea>
+      eaaomk
+    </h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-221076ea data-v-221076ea><input type="password" value="" data-v-221076ea> <span data-v-221076ea>Konck! Knock!</span> <button data-v-221076ea>OK</button></label></div> <div class="hide" data-v-007af369><div data-v-007af369><div id="smart" class="wrapper-page" style="background-image:url(/blog/back01.jpg);background-position-x:center;background-position-y:center;background-size:cover;background-repeat-x:no-repeat;background-repeat-y:no-repeat;" data-v-007af369><header class="navbar" data-v-007af369><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/logo.png" alt="eaaomk" class="logo"> <span class="site-name">eaaomk</span></a> <div class="links"><div id="dayNightSwitch" class="generalWrapper" data-v-52d14190><a class="click" data-v-52d14190><div class="onOff daySwitch" data-v-52d14190><div class="star star1" data-v-52d14190></div> <div class="star star2" data-v-52d14190></div> <div class="star star3" data-v-52d14190></div> <div class="star star4" data-v-52d14190></div> <div class="star star5" data-v-52d14190></div> <div class="star sky" data-v-52d14190></div> <div class="sunMoon" data-v-52d14190><div class="crater crater1" data-v-52d14190></div> <div class="crater crater2" data-v-52d14190></div> <div class="crater crater3" data-v-52d14190></div> <div class="cloud part1" data-v-52d14190></div> <div class="cloud part2" data-v-52d14190></div></div></div></a></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/常用命令/" class="nav-link"><i class="iconfont undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/情景再现/" class="nav-link"><i class="iconfont undefined"></i>
+  情景再现
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/AMS/" class="nav-link"><i class="iconfont undefined"></i>
+  AMS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/Zygote/" class="nav-link"><i class="iconfont undefined"></i>
+  Zygote
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/审计/" class="nav-link"><i class="iconfont undefined"></i>
+  审计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/财务会计/" class="nav-link"><i class="iconfont undefined"></i>
+  财务会计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/进程与线程/" class="nav-link"><i class="iconfont undefined"></i>
+  进程与线程
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/消息传递/" class="nav-link"><i class="iconfont undefined"></i>
+  消息传递
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/处理机调度与死锁/" class="nav-link"><i class="iconfont undefined"></i>
+  处理机调度与死锁
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计思想与代码质量优化/" class="nav-link"><i class="iconfont undefined"></i>
+  设计思想与代码质量优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计模式/" class="nav-link"><i class="iconfont undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/数据结构/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/算法/" class="nav-link"><i class="iconfont undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/VSCODE/" class="nav-link"><i class="iconfont undefined"></i>
+  VSCODE
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-007af369></div> <aside class="sidebar" data-v-007af369><div class="personal-info-wrapper" data-v-3eba7259 data-v-007af369><img src="/blog/logo.png" alt="author-avatar" class="personal-img" data-v-3eba7259> <h3 class="name" data-v-3eba7259>
+    eaaomk
+  </h3> <div class="num" data-v-3eba7259><div data-v-3eba7259><h3 data-v-3eba7259>37</h3> <h6 data-v-3eba7259>文章</h6></div> <div data-v-3eba7259><h3 data-v-3eba7259>10</h3> <h6 data-v-3eba7259>标签</h6></div></div> <hr data-v-3eba7259></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/常用命令/" class="nav-link"><i class="iconfont undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/情景再现/" class="nav-link"><i class="iconfont undefined"></i>
+  情景再现
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/AMS/" class="nav-link"><i class="iconfont undefined"></i>
+  AMS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/Zygote/" class="nav-link"><i class="iconfont undefined"></i>
+  Zygote
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/审计/" class="nav-link"><i class="iconfont undefined"></i>
+  审计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/财务会计/" class="nav-link"><i class="iconfont undefined"></i>
+  财务会计
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/进程与线程/" class="nav-link"><i class="iconfont undefined"></i>
+  进程与线程
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/消息传递/" class="nav-link"><i class="iconfont undefined"></i>
+  消息传递
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/处理机调度与死锁/" class="nav-link"><i class="iconfont undefined"></i>
+  处理机调度与死锁
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计思想与代码质量优化/" class="nav-link"><i class="iconfont undefined"></i>
+  设计思想与代码质量优化
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/设计模式/" class="nav-link"><i class="iconfont undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/数据结构/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/算法/" class="nav-link"><i class="iconfont undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/VSCODE/" class="nav-link"><i class="iconfont undefined"></i>
+  VSCODE
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/blog/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-221076ea data-v-007af369><h3 class="title" style="display:none;" data-v-221076ea data-v-221076ea>
+      前趋图与程序的执行
+    </h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-221076ea data-v-221076ea><input type="password" value="" data-v-221076ea> <span data-v-221076ea>Konck! Knock!</span> <button data-v-221076ea>OK</button></label></div></div> <div data-v-007af369><main class="page"><div class="page-title" style="display:none;"><h1 class="title">前趋图与程序的执行</h1> <div class="page-info" data-v-709b7add><i class="iconfont reco-account" data-v-709b7add><span data-v-709b7add>eaaomk</span></i> <i class="iconfont reco-date" data-v-709b7add><span data-v-709b7add>2022-01-07 23:00:00</span></i> <!----> <i class="iconfont reco-tag tags" data-v-709b7add><span class="tag-item" data-v-709b7add>OS</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="前趋图与程序的执行"><a href="#前趋图与程序的执行" class="header-anchor">#</a> 前趋图与程序的执行</h2> <h3 id="序言"><a href="#序言" class="header-anchor">#</a> 序言</h3> <p>在早期未配置Os的系统和单道批处理系统中,程序的执行方式是顺序执行,即在内存中仅装入一道用户程序,由它独占系统中的所有资源,只有在一个用户程序执行完成后,才允许装入另一个程序并执行。可见,这种方式浪费资源、系统运行效率低等缺点。而在多道程序系统中,由于内存中可以同时装入多个程序,使它们共享系统资源,并发执行 显然可以克服上述缺点,程序的这两种执行方式间有着显著的不同,尤其是考虑到程序井发执行时的特征,才导致了在操作系统中引入进程的概念。因此,这里有必要先对程序的顺序和并发执行方式做简单的描述。</p> <h3 id="前趋图"><a href="#前趋图" class="header-anchor">#</a> 前趋图</h3> <p>为了能更好地描述程序的顺序和并发执行情况,我们先介绍用于描述程序执行先后颗序的前趋图,所谓前趋图(Precedence Graph),是指一个有向无循环图,可记为DAG(DirectedAcyclic Graph),它用于描述进程之间执行的先后顺序。图中的每个结点可用来表示一个进程或程序段,乃至一条语句,结点间的有向边则表示两个结点之间存在的偏序(Partial Order)或前趋关系(Precedence Relation)。进程(或程序)之间的前趋关系可用“→”来表示。如果进程Pi,和Pj存在着前趋关系,可表示为(Pi, Pj)∈→,也可写成Pi→Pj,表示在Pj开始执行之前Pi必须完成。此时称Pi是Pj的直接前趋,而称Pj是Pi的直接后继。在前趋图中,把没有前趋的结点称为初始结点(Initial Node),把没有后继的结点称为终止结点(Final Node),此外,每个结点还具有一个重量(Weight),用于表示该结点所含有的程序量或程序的执行时间。在图2-1(a)所示的前趋图中,存在着如下前趋关系:</p> <div class="language- extra-class"><pre class="language-text"><code>P1→P2, P1→P3, P1→P4, P2→P5,P3→P5,P4→P6,P4→P7,P5→P8,P6→P8,P7→P9,P8→P9 
+</code></pre></div><p>或表示为:</p> <div class="language- extra-class"><pre class="language-text"><code>P={P1,P2,P3,P4,P5,P6,P7,P8,P9}
+ ={(P1,P2),{P1,P3}, {P1,P4}, {P2,P5},{P3,P5},{P4,P6},{P4,P7},{P5,P8},{P6,P8},{P7,P9},P8,P9,}
+</code></pre></div><p>应当注意，前趋图中是不允许有循环的，否则必然会产生不可能实现的前驱关系。如图2-1(b)所示的前驱关系红酒存在着循环。它一方面要求S3开始执行前，S2必须完成，另一方面又要求S2在开始执行前，S3必须完成。显然，这种关系是不可能实现的。</p> <blockquote></blockquote> <p><img src="/blog/assets/img/precedence-graph.fc6bb0b9.png" alt="前趋图"></p> <h3 id="程序顺序执行"><a href="#程序顺序执行" class="header-anchor">#</a> 程序顺序执行</h3> <p>通常,一个应用程序由若干个程序段组成,每一个程序段完成特定的功能,它们在执行时,都需要按照某种先后次序顺序执行,仅当前一程序段执行完后,才运行后一程序段。
+例如,在进行计算时,应先运行输入程序,用于输入用户的程序和数据;然后运行计算程序,对所输入的数据进行计算:最后才是运行打印程序,打印计算结果。我们用结点(Node)代表各程序段的操作(在图2-1中用圆圈表示),其中I代表输入操作, C代表计算操作, P为打印操作,用箭头指示操作的先后次序。这样,上述的三个程序段间就存在着这样的前趋关系: Ii→Ci→Pi,其执行的顺序可用前趋图2-2(a)描述。</p> <blockquote></blockquote> <p><img src="/blog/assets/img/zxt.577349cf.png" alt="前趋图"></p> <ul><li>即使是一个程序段，也可能存在着执行顺序问题，下面给出一个包含了三条语句的程序段：</li></ul> <div class="language-java extra-class"><pre class="language-java"><code>S1<span class="token operator">:</span> a<span class="token operator">:</span><span class="token operator">=</span> x<span class="token operator">+</span>y
+S2<span class="token operator">:</span> b<span class="token operator">:</span><span class="token operator">=</span>a<span class="token operator">-</span><span class="token number">5</span>
+S3<span class="token operator">:</span> c<span class="token operator">:</span><span class="token operator">=</span>b<span class="token operator">+</span><span class="token number">1</span>
+</code></pre></div><p>其中,语句S2必须在语句S1后(即a被赋值)才能执行,语句S3也只能在b被赋值后才能执行,因此,三条语句存在着这样的前趋关系:S1→S2→S3,应按前趋图2-2(b)所示的顺序执行。</p> <ul><li>所以程序顺序执行时有以下几个特征：
+<ul><li>顺序性：指处理机严格地按照程序所规定的顺序执行，即每一操作必须在下一个操作开始之前结束。</li> <li>封闭性：指程序在封闭的环境下运行，即程序运行时独占全机资源，资源的状态（除初始状态以外）只有本程序才能改变它，程序一旦开始执行，其执行结果不受外界因素影响。</li> <li>可再现性：指只要程序执行时的环境和初始条件相同，当程序重复执行时，不论它是从头到尾不停顿地执行，还是“走走停停”地执行，都可以获得相同的结果。这种特性，为程序员检测和校验程序的错误带来了很大的方便。</li></ul></li></ul> <h3 id="程序并发执行"><a href="#程序并发执行" class="header-anchor">#</a> 程序并发执行</h3> <p>程序顺序执行时,虽然可以给程序员带来方便,但系统资源的利用率却很低。为此,系统中引入了多道程序技术,使程序或程序段间能并发执行。然而,并非所有的程序都能发执行。</p> <ul><li>事实上,只有在不存在前趋关系的程序之间才有可能并发执行,否则无法并发执行</li></ul> <p>我们通过一个常见的例子来说明程序的顺序执行和并发执行。在图2-2中的输入程序、计算程序和打印程序三者之间,存在着Ii→Ci→Pi这样的前趋关系,以至对一个作业的输入、计算和打印三个程序段必须顺序执行。但若是对一批作业进行处理时,每道作业的输入、计算和打印程序段的执行情况如图2-3所示。输入程序(I1)在输入第一次数据后,由计算程序(C1)对该数据进行计算的同时,输入程序(I2)可再输入第二次数据,从而使第一个计算程序(C1)与第二个输入程序(I2)并发执行。事实上,正是由于C1和I1之间并不存在前趋关系,因此它们之间可以并发执行。一般来说,输入程序(Ii+1)在输入第i+1次数据时,计算程序(Ci)可能正在对程序(Ii)的第i次输入的数据进行计算,而打印程序(Pi-1)正在打印程序(Ci-1)的计算结果。
+由图2-3可以看出,存在前趋关系Ii→Ci,Ii→Ii+1,Ci→Pi,Ci→Ci+1,Pi→Pi+1,而Ii+1和Ci,及Pi-1是重叠的,即在Pi-1和Ci,以及Ii+1之间,不存在前趋关系,可以并发执行。
+对于具有下述四条语句的程序段:</p> <div class="language- extra-class"><pre class="language-text"><code>S1: a:= x+2
+S2: b:= y+4
+S3: c:= a+b
+S4: d:= c+b
+</code></pre></div><p>可画出图2-4所示的前驱关系。可以看出，S3必须在a和b被赋值后方能执行；S4必须在S3之后执行；但S1和S2则可以并发执行，因为他们彼此互不依赖。</p> <blockquote></blockquote> <p><img src="/blog/assets/img/2-3.8fff5ce7.png" alt="前趋图"></p> <ul><li>所以程序并发执行时有以下几个特征：
+<ul><li>间断性。程序在并发执行时,由于它们共享系统资源,以及为完成同一项任务而相互合作,致使在这些并发执行的程序之间形成了相互制约的关系。例如,图2-3中的I、C和P是三个相互合作的程序,当计算程序完成Ci-1的计算后,如果输入程序Ii尚未完成数据的输入,则计算程序Ci就无法进行数据处理,必须暂停运行。只有当使程序暂停的因素消失后(如Ii已完成数据输入),计算程序Ci便可恢复执行。由此可见,相互制约将导致并发程序具有“执行—暂停—执行”这种间断性的活动规律。</li> <li>失去封闭性。当系统中存在着多个可以并发执行的程序时,系统中的各种资源将为它们所共享,而这些资源的状态也由这些程序来改变,致使其中任一程序在运行时,其环境都必然会受到其它程序的影响。例如,当处理机已被分配给某个进程运行时,其它程序必须等待。显然,程序的运行已失去了封闭性。</li> <li>不可再现性。程序在并发执行时,由于失去了封闭性,也将导致其又失去可再现性。例如,有两个循环程序A和B,它们共享一个变量N。程序A每执行一次时,都要做N=N+1操作;程序B每执行一次时,都要执行 Print(N) 操作,然后再将N置成“0”。程序A和B以不同的速度运行。这样,可能出现下述三种情况(假定某时刻变量N的值为n):
+① N=N+1在Print(N)和N=0之前,此时得到的N值分别为n+1,n+1,0。
+② N=N+1在Print(N)和N=0之后,此时得到的N值分别为n,0,1。
+③ N=N+1在Print(N)和N=0之间,此时得到的N值分别为n,n+1,0。</li></ul></li> <li>上述情况说明,程序在并发执行时,由于失去了封闭性,其计算结果必将与并发程序的执行速度有关,从而使程序的执行失去了可再现性。换而言之,程序经过多次执行后,虽然它们执行时的环境和初始条件相同,但得到的结果却各不相同。</li></ul></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----> <!----></main> <!----></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="Sakura" data-v-017cf06a><canvas id="canvas_sakura" style="z-index:20;" data-v-017cf06a></canvas></div><APlayer audio="" fixed="true" mini="true" autoplay="autoplay" theme="#b7daff" loop="loop" order="list" preload="auto" volume="0.7" mutex="true" lrc-type="3" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer></div></div>
+    <script src="/blog/assets/js/app.19518fa2.js" defer></script><script src="/blog/assets/js/5.4859d6c2.js" defer></script><script src="/blog/assets/js/1.5aece763.js" defer></script><script src="/blog/assets/js/15.6c9f042b.js" defer></script>
+  </body>
+</html>
